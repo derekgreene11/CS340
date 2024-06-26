@@ -33,7 +33,7 @@ Git will be used for version control.
         1.2.3  Google "flip a coin" when members cannot reach a consensus. 
         Members agree to to accept the random resolution and proceed with the 
         result as final  
-    1.3 Members are expected to contribute equally per __Section 3__.
+    1.3 Members are expected to contribute equally per __Section 3__.  
     1.4 Members shall outline tasking per __Section 3__ for each project deliverable. 
     When emergencies arise, or members struggle to complete their tasks, the 
     group will work to keep tasking equal in future scope when a member fails to 
@@ -47,28 +47,29 @@ Git will be used for version control.
         2.3.1 Tasking shall be outlined in repository README.md  
         2.3.2 Members shall work locally and push commits to the remote 
         repository with commit messages as defined in 2.3.3.  
-        2.3.3 Commit messages shall be of the form: {TAG: description of commit}
-        COMPLETE: description of completed work.
-        INCOMPLETE: description of completeness and specifics as to issue 
-            resulting in INCOMPLETE. ie confusion, struggling with implementation, 
-            need help with, falling behind ect. A commit message using this tag 
-            can also add a little detail about planned method for resolution 
-            such as researching ED, ect.
-        IN-PROCESS: commit for collaboration which is safe to fetch. Not 
-            Necessarily due to issues, struggling, or needing help, rather to 
-            support other ongoing work while further implementation details are 
-            getting added/worked on.
+        2.3.3 Commit messages shall be of the form: {TAG: description of commit} where TAG is defined as follows:  
+        2.3.3.1 COMPLETE: description of completed work.  
+        2.3.3.2 INCOMPLETE: description of completeness and specifics as to issue  
+        resulting in INCOMPLETE. ie confusion, struggling with implementation, 
+        need help with, falling behind ect. A commit message using this tag can 
+        also add a little detail about planned method for resolution such as 
+        researching ED, ect.  
+        2.3.3.3 IN-PROCESS: commit for collaboration which is safe to fetch. 
+        Not necessarily due to issues, struggling, or needing help, rather to 
+        support other ongoing work while further implementation details are 
+        getting added/worked on.
 
 3. ### Tasking
 
     3.1 Tasking shall be outlined in repository README.md.  
     3.2 Tasking shall be outlined at the beginning of each deliverable.  
-    3.3 Tasking shall include:
-    3.3.1 Scope of work
-    3.3.2 Anticipated commit date of not less than 48 hours before project 
+    3.3 Tasking shall include:  
+    3.3.1 Scope of work  
+    3.3.2 Owner of scope  
+    3.3.3 Anticipated commit date of not less than 48 hours before project  
     deliverable deadline. This is to allow other members flexibility in ensuring 
     deadlines are met with the appropriate requirements. If scope cannot be met 
     by the owner within this time period, other members may take ownership of 
-    the scope.
+    the scope.  
     3.4 Tasks are considered complete when a commit message is tagged as 
     COMPLETE per 2.3.3 
