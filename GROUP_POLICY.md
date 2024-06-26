@@ -48,7 +48,7 @@ Git will be used for version control.
         2.3.2 Members shall work locally and push commits to the remote 
         repository with commit messages as defined in 2.3.3.  
         2.3.3 Commit messages shall be of the form: {TAG: description of commit}
-            COMPLETE: description of completed work
+            COMPLETE: description of completed work.
 
             INCOMPLETE: description of completeness and specifics as to issue 
             resulting in INCOMPLETE. ie confusion, struggling with implementation, 
