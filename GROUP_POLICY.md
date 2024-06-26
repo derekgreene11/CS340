@@ -1,8 +1,8 @@
 # Group Policy
 ## Members
 
-Greene, Derek- member  
-Schuler, Nathan- member
+Greene, Derek - member  
+Schuler, Nathan - member
 
 ## Team Name
 
