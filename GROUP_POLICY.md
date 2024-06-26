@@ -48,15 +48,13 @@ Git will be used for version control.
         2.3.2 Members shall work locally and push commits to the remote 
         repository with commit messages as defined in 2.3.3.  
         2.3.3 Commit messages shall be of the form: {TAG: description of commit}
-            COMPLETE: description of completed work.
-
-            INCOMPLETE: description of completeness and specifics as to issue 
+        COMPLETE: description of completed work.
+        INCOMPLETE: description of completeness and specifics as to issue 
             resulting in INCOMPLETE. ie confusion, struggling with implementation, 
             need help with, falling behind ect. A commit message using this tag 
             can also add a little detail about planned method for resolution 
             such as researching ED, ect.
-
-            IN-PROCESS: commit for collaboration which is safe to fetch. Not 
+        IN-PROCESS: commit for collaboration which is safe to fetch. Not 
             Necessarily due to issues, struggling, or needing help, rather to 
             support other ongoing work while further implementation details are 
             getting added/worked on.
