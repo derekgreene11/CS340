@@ -1,7 +1,5 @@
-# TO-DO
-```diff
-- DUE 7/5 11:59 PM PST
-```
+# TO-DO 
+$${\color{red}DUE \space\space 7/5}$$
 ## Project Step 1 Draft
 
 - [ ] Decide on database idea (aka. what data will database store and for what purpose?)
