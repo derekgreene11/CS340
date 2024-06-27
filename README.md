@@ -1,5 +1,7 @@
 # TO-DO
-
+```diff
+- DUE 7/5 11:59 PM PST
+```
 ## Project Step 1 Draft
 
 - [ ] Decide on database idea (aka. what data will database store and for what purpose?)
