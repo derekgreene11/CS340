@@ -2,12 +2,12 @@
 $${\color{red}DUE \space\space 7/5}$$
 ## Project Step 1 Draft
 
-- [ ] Decide on database idea (aka what data will database store and for what purpose?)
+- [x] Decide on database idea (aka what data will database store and for what purpose?)
 
-- [ ] Define 4 entity tables
+- [x] Define 4 entity tables
 
-- [ ] Define 4 different relationships (1 must be M:M)
-- [ ] Design ERD
+- [x] Define 4 different relationships (1 must be M:M)
+- [ ] Design ERD 
 
 - [ ] Forward engineering ER Diagram to generate SQL queries and push to repository
 ## Deliverable
