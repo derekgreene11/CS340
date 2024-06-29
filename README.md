@@ -2,9 +2,9 @@
 $${\color{red}DUE \space\space 7/5}$$
 ## Project Step 1 Draft
 
-- [x] Decide on database idea (aka what data will database store and for what purpose?)
+- [\u2705] Decide on database idea (aka what data will database store and for what purpose?)
 
-- [x] Define 4 entity tables
+- [x] Define 4 entity tables 
 
 - [x] Define 4 different relationships (1 must be M:M)
 - [ ] Design ERD 
