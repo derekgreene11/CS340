@@ -7,7 +7,8 @@ $${\color{red}DUE \space\space 7/5}$$
 :white_check_mark: Define 4 entity tables 
 
 :white_check_mark: Define 4 different relationships (1 must be M:M)
-- [ ] Design ERD 
+
+:white_check_mark: Design ERD 
 
 - [ ] Forward engineering ER Diagram to generate SQL queries and push to repository
 ## Deliverable
