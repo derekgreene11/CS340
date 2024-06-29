@@ -16,6 +16,3 @@ $${\color{red}DUE \space\space 7/5}$$
 - [ ] A. Briefly describe the problem that a website with DB back end will solve. One excellent paragraph may be enough. Be specific (and include several numbers) so the reader can understand what sort of system is needed. A company that makes 200 sales per year will have a very different system from one that makes 20,000 sales per year. For example:
 
 - [ ] Using a bullet list describe each entity in detail, its attributes and any relationships between entities. Explain the purpose of each entity. Provide some details about each attributes to include data type and any constraints. Describe any relationships between entities here too.
-
-
-
