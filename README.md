@@ -1,18 +1,19 @@
 # TO-DO 
-$${\color{red}DUE \space\space 7/5}$$
-## Project Step 1 Draft
+$${\color{red}DUE \space\space 7/8}$$
+## Project Step 1 Review
 
-:white_check_mark: Decide on database idea (aka what data will database store and for what purpose?)
+- [ ] Derek's 1st review of other groups project
 
-:white_check_mark: Define 4 entity tables 
+- [ ] Derek's 2nd reciew of other groups project
 
-:white_check_mark: Define 4 different relationships (1 must be M:M)
+- [ ] Submit Derek's review URLs to canvas
 
-:white_check_mark: Design ERD 
+- [ ] Nathan's 1st review of other groups project
 
-:white_check_mark: Forward engineering ER Diagram to generate SQL queries and push to repository
-## Deliverable
+- [ ] Nathan's 2nd review of other groups project
 
-:white_check_mark: A. Briefly describe the problem that a website with DB back end will solve. One excellent paragraph may be enough. Be specific (and include several numbers) so the reader can understand what sort of system is needed. A company that makes 200 sales per year will have a very different system from one that makes 20,000 sales per year. For example:
+- [ ] Submit Nathan's review URLs to canvas
 
-:white_check_mark: Using a bullet list describe each entity in detail, its attributes and any relationships between entities. Explain the purpose of each entity. Provide some details about each attributes to include data type and any constraints. Describe any relationships between entities here too.
+## Rubric
+
+Insightfully identifies in detail relevant and supported limitations and implications using prompts. All prompts are skillfully developed. Uses evidence to reveal insightful recommendations. States conclusions that are logical extrapolations from findings.
