@@ -4,7 +4,7 @@ $${\color{red}DUE \space\space 7/8}$$
 
 - [ ] Derek's 1st review of other groups project
 
-- [ ] Derek's 2nd reciew of other groups project
+- [ ] Derek's 2nd review of other groups project
 
 - [ ] Submit Derek's review URLs to canvas
 
