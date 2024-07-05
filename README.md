@@ -8,11 +8,11 @@ $${\color{red}DUE \space\space 7/8}$$
 
 - [ ] Submit Derek's review URLs to canvas
 
-- [ ] Nathan's 1st review of other groups project
+:Nathan's 1st review of other groups project
 
-- [ ] Nathan's 2nd review of other groups project
+:Nathan's 2nd review of other groups project
 
-- [ ] Submit Nathan's review URLs to canvas
+:Submit Nathan's review URLs to canvas
 
 ## Rubric
 
