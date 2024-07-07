@@ -2,11 +2,11 @@
 $${\color{red}DUE \space\space 7/8}$$
 ## Project Step 1 Review
 
-- [ ] Derek's 1st review of other groups project
+:white_check_mark: Derek's 1st review of other groups project
 
-- [ ] Derek's 2nd review of other groups project
+:white_check_mark: Derek's 2nd review of other groups project
 
-- [ ] Submit Derek's review URLs to canvas
+:white_check_mark: Submit Derek's review URLs to canvas
 
 :white_check_mark: Nathan's 1st review of other groups project
 
