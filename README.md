@@ -1,17 +1,22 @@
 # TO-DO 
-$${\color{red}DUE \space\space 7/11}$$
-## Project Step 1 Final Versio
+$${\color{red}DUE \space\space 7/18}$$
+## Project Step 2 Draft: Normalized + DDL with Sample Data
 
-Turn in the Final Version of the Project Step 1, as a Group. It's expected that you have fixed your submission based on the peer review(s) you received for the Draft version.
+- [ ] zip of the following named projectgroup12_step2_DRAFT.zip  
 
-:white_check_mark: Add TA feedback to the Project Step 1 draft
-      
-:white_check_mark: Add Peer feedback to the Prject Step 1 draft
-      
-:white_check_mark: Describe any actions taken based on provided feedback
-      
-:white_check_mark: Provide list of revisions made on our own accord. 
+## Step 1
+[:white_check_mark]:#
+
+- [ ] A PDF with schema diagram with example data and following sections  
+- [ ] A. Fixes based on Feedback from Step 1  
+- [ ] B. Project Outline and Database Outline - Updtated Version  
+- [ ] C. Entity-Relationship Diagram  
+- [ ] D. Schema  
+- [ ] E. Example Data  
+
+## Step 2
+- [ ] Data Definition Queries as defined in the Rubric
 
 ## Rubric
 
-Use Module three content to revise the draft to avoid common problems with poor DB design.
+[Rubric](https://canvas.oregonstate.edu/courses/1967354/assignments/9690210?module_item_id=24460832)
