@@ -9,7 +9,7 @@ $${\color{red}DUE \space\space 7/18}$$
 
 - [ ] A PDF file containing all the items from Step 1, plus a schema diagram which should follow the (updated) database outline and ER diagram, and the example data used in your database.
 
-- [x] The .SQL file containing your Data Definition Queries (e.g. DDL.sql) and the sample data INSERT statements
+:white_check_mark: The .SQL file containing your Data Definition Queries (e.g. DDL.sql) and the sample data INSERT statements
 
 
 ## Rubric
