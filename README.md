@@ -2,12 +2,12 @@
 $${\color{red}DUE \space\space 7/18}$$
 ## Project Step 2 Draft: Normalized + DDL with Sample Data
 
-- [ ] zip of the following named projectgroup12_step2_DRAFT.zip  
+:white_check_mark: zip of the following named projectgroup12_step2_DRAFT.zip  
 
 ## Step 1
 [:white_check_mark]:#
 
-- [ ] A PDF file containing all the items from Step 1, plus a schema diagram which should follow the (updated) database outline and ER diagram, and the example data used in your database.
+:white_check_mark: A PDF file containing all the items from Step 1, plus a schema diagram which should follow the (updated) database outline and ER diagram, and the example data used in your database.
 
 :white_check_mark: The .SQL file containing your Data Definition Queries (e.g. DDL.sql) and the sample data INSERT statements
 
