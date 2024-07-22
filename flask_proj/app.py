@@ -2,16 +2,11 @@ from flask import Flask, render_template, json, redirect
 from flask_mysqldb import MySQL
 from flask import request
 import os
+import database.db_connector as db
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'classmysql.engr.oregonstate.edu'
-app.config['MYSQL_USER'] = 'cs340_greenede'
-app.config['MYSQL_PASSWORD'] = 'rMWUvskFlErM'
-app.config['MYSQL_DB'] = 'cs340_greenede'
-app.config['MYSQL_CURSORCLASS'] = "DictCursor"
-
-
+db_connection = db.connect_to_database()
 mysql = MySQL(app)
 
 
@@ -20,8 +15,17 @@ mysql = MySQL(app)
 def root():
     return render_template("main.j2")
 
+@app.route('/users')
+def users():
+
+    query = "SELECT * FROM Users;"
+
+    cursor = db.execute_query(db_connection=db_connection, query=query)
+    results = json.dumps(cursor.fetchall())
+    
+    return results
 
 # Listener
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 43278))
-    app.run(port=port)
+    app.run(port=port, debug=True)
