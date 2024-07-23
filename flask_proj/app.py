@@ -20,7 +20,7 @@ def designs():
     query = "SELECT * FROM Designs;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
-    return render_template('designs.j2', designs=results)
+    return render_template('designs.html', designs=results)
 
 @app.route('/add_design', methods=['GET', 'POST'])
 def add_design():
@@ -36,7 +36,7 @@ def add_design():
         except Exception as e:
             print(f"Error: {e}")
             return "There was an error adding the design.", 500
-    return render_template('add_design.j2')
+    return render_template('add_design.html')
 
 @app.route('/edit_design/<int:part_number>', methods=['GET', 'POST'])
 def edit_design(part_number):
@@ -55,7 +55,7 @@ def edit_design(part_number):
         query = "SELECT * FROM Designs WHERE partNumber = %s;"
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
         design = cursor.fetchone()
-        return render_template('edit_design.j2', design=design)
+        return render_template('edit_design.html', design=design)
     
 @app.route('/delete_design/<int:part_number>')
 def delete_design(part_number):
@@ -73,7 +73,7 @@ def requirements():
     query = "SELECT * FROM Requirements;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
-    return render_template('requirements.j2', requirements=results)
+    return render_template('requirements.html', requirements=results)
 
 @app.route('/add_requirement', methods=['GET', 'POST'])
 def add_requirement():
@@ -87,7 +87,7 @@ def add_requirement():
         except Exception as e:
             print(f"Error: {e}")
             return "There was an error adding the requirement.", 500
-    return render_template('add_requirement.j2')
+    return render_template('add_requirement.html')
 
 @app.route('/edit_requirement/<int:requirement_id>', methods=['GET', 'POST'])
 def edit_requirement(requirement_id):
@@ -105,7 +105,7 @@ def edit_requirement(requirement_id):
         query = "SELECT * FROM Requirements WHERE requirementId = %s;"
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(requirement_id,))
         requirement = cursor.fetchone()
-        return render_template('edit_requirement.j2', requirement=requirement)
+        return render_template('edit_requirement.html', requirement=requirement)
 
 @app.route('/delete_requirement/<int:requirement_id>')
 def delete_requirement(requirement_id):
@@ -123,7 +123,7 @@ def projects():
     query = "SELECT * FROM Projects;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
-    return render_template('projects.j2', projects=results)
+    return render_template('projects.html', projects=results)
 
 @app.route('/add_project', methods=['GET', 'POST'])
 def add_project():
@@ -133,7 +133,7 @@ def add_project():
         db.execute_query(db_connection=db_connection, query=query, query_params=(project_status,))
         db_connection.commit()
         return redirect(url_for('projects'))
-    return render_template('add_project.j2')
+    return render_template('add_project.html')
 
 @app.route('/edit_project/<int:project_id>', methods=['GET', 'POST'])
 def edit_project(project_id):
@@ -147,7 +147,7 @@ def edit_project(project_id):
         query = "SELECT * FROM Projects WHERE projectId = %s;"
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
         project = cursor.fetchone()
-        return render_template('edit_project.j2', project=project)
+        return render_template('edit_project.html', project=project)
 
 @app.route('/delete_project/<int:project_id>')
 def delete_project(project_id):
@@ -161,7 +161,7 @@ def users():
     query = "SELECT * FROM Users;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
-    return render_template('users.j2', users=results)
+    return render_template('users.html', users=results)
 
 @app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
@@ -173,7 +173,7 @@ def add_user():
         db.execute_query(db_connection=db_connection, query=query, query_params=(first_name, last_name, discipline))
         db_connection.commit()  # Ensure changes are committed
         return redirect(url_for('users'))
-    return render_template('add_user.j2')
+    return render_template('add_user.html')
 
 @app.route('/edit_user/<int:user_id>', methods=['GET', 'POST'])
 def edit_user(user_id):
@@ -189,7 +189,7 @@ def edit_user(user_id):
         query = "SELECT * FROM Users WHERE userId = %s;"
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(user_id,))
         user = cursor.fetchone()
-        return render_template('edit_user.j2', user=user)
+        return render_template('edit_user.html', user=user)
     
 @app.route('/delete_user/<int:user_id>')
 def delete_user(user_id):

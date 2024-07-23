@@ -1,3 +1,5 @@
-/.vscode
-/flask_proj/venv
+.vscode/
+env/
+.venv/
 .env
+venv/
