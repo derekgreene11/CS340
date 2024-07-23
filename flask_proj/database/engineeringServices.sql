@@ -46,8 +46,8 @@ CREATE TABLE ProjectRequirements (
     projectId int(11) NOT NULL,
     requirementId int(11) NOT NULL,
     PRIMARY KEY (projectId, requirementId),
-    FOREIGN KEY (projectId) REFERENCES Projects(projectId),
-    FOREIGN KEY (requirementId) REFERENCES Requirements(requirementId)
+    FOREIGN KEY (projectId) REFERENCES Projects(projectId) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (requirementId) REFERENCES Requirements(requirementId) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- User-Project intersection table
@@ -55,8 +55,8 @@ CREATE TABLE UserProjects (
     userId int(11) NOT NULL,
     projectId int(11) NOT NULL,
     PRIMARY KEY (userId, projectId),
-    FOREIGN KEY (userId) REFERENCES Users(userId),
-    FOREIGN KEY (projectId) REFERENCES Projects(projectId)
+    FOREIGN KEY (userId) REFERENCES Users(userId) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (projectId) REFERENCES Projects(projectId) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Design-Project intersection table
@@ -64,8 +64,8 @@ CREATE TABLE DesignProjects (
     partNumber int(11) NOT NULL,
     projectId int(11) NOT NULL,
     PRIMARY KEY (partNumber, projectId),
-    FOREIGN KEY (partNumber) REFERENCES Designs(partNumber),
-    FOREIGN KEY (projectId) REFERENCES Projects(projectId)
+    FOREIGN KEY (partNumber) REFERENCES Designs(partNumber) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (projectId) REFERENCES Projects(projectId) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Design-User intersection table
@@ -73,8 +73,8 @@ CREATE TABLE DesignUsers (
     partNumber int(11) NOT NULL,
     userId int(11) NOT NULL,
     PRIMARY KEY (partNumber, userId),
-    FOREIGN KEY (partNumber) REFERENCES Designs(partNumber),
-    FOREIGN KEY (userId) REFERENCES Users(userId)
+    FOREIGN KEY (partNumber) REFERENCES Designs(partNumber) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (userId) REFERENCES Users(userId) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- Insert sample data into Requirements table
@@ -107,19 +107,41 @@ INSERT INTO Designs (partNumber, revision, tool) VALUES
 -- Insert sample data into ProjectRequirements table
 INSERT INTO ProjectRequirements (projectId, requirementId)
 SELECT p.projectId, r.requirementId
-FROM Projects p, Requirements r;
+FROM Projects p
+JOIN Requirements r
+ON (p.projectId, r.requirementId) IN (
+    (126, 1), (152, 2), (364, 3), (315, 4), (155, 5),
+    (332, 6), (416, 7), (598, 8), (655, 9), (285, 10), (632, 11)
+);
 
 -- Insert sample data into UserProjects table
 INSERT INTO UserProjects (userId, projectId)
 SELECT u.userId, p.projectId
-FROM Users u, Projects p;
+FROM Users u
+JOIN Projects p
+ON (u.userId, p.projectId) IN (
+    (24913, 126), (35682, 152), (27795, 364), (24614, 315), (18502, 155),
+    (30562, 332), (18832, 416), (35562, 598), (5526, 655), (26553, 285), (14732, 632)
+);
 
 -- Insert sample data into DesignProjects table
 INSERT INTO DesignProjects (partNumber, projectId)
 SELECT d.partNumber, p.projectId
-FROM Designs d, Projects p;
+FROM Designs d
+JOIN Projects p
+ON (d.partNumber, p.projectId) IN (
+    (256413432, 126), (544545123, 152), (869178821, 364), (238464815, 315),
+    (535654652, 155), (498743514, 332), (494651565, 416), (489655316, 598),
+    (203248465, 655), (335454554, 285), (854564553, 632)
+);
 
 -- Insert sample data into DesignUsers table
 INSERT INTO DesignUsers (partNumber, userId)
 SELECT d.partNumber, u.userId
-FROM Designs d, Users u;
+FROM Designs d
+JOIN Users u
+ON (d.partNumber, u.userId) IN (
+    (256413432, 24913), (544545123, 35682), (869178821, 27795), (238464815, 24614),
+    (535654652, 18502), (498743514, 30562), (494651565, 18832), (489655316, 35562),
+    (203248465, 5526), (335454554, 26553), (854564553, 14732)
+);
