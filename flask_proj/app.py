@@ -13,12 +13,13 @@ mysql = MySQL(app)
 # Routes
 @app.route('/')
 def root():
-    return render_template("main.j2")
 
-@app.route('/users')
+    return render_template("designs.j2")
+
+@app.route('/designs')
 def users():
 
-    query = "SELECT * FROM Users;"
+    query = "SELECT * FROM Designs;"
 
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = json.dumps(cursor.fetchall())

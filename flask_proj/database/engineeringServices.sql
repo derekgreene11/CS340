@@ -76,6 +76,7 @@ CREATE TABLE DesignUsers (
     FOREIGN KEY (partNumber) REFERENCES Designs(partNumber),
     FOREIGN KEY (userId) REFERENCES Users(userId)
 );
+
 -- Insert sample data into Requirements table
 INSERT INTO Requirements (requirementId, level) VALUES
 (1, 'low'), (2, 'low'), (3, 'high'), (4, 'medium'), (5, 'medium'),
@@ -104,23 +105,21 @@ INSERT INTO Designs (partNumber, revision, tool) VALUES
 (335454554, 1, 'CAD'), (854564553, 4, 'CAD');
 
 -- Insert sample data into ProjectRequirements table
-INSERT INTO ProjectRequirements (projectId, requirementId) VALUES
-(126, 1), (152, 2), (364, 3), (315, 4), (155, 5),
-(332, 6), (416, 7), (598, 8), (655, 9), (285, 10), (632, 11);
+INSERT INTO ProjectRequirements (projectId, requirementId)
+SELECT p.projectId, r.requirementId
+FROM Projects p, Requirements r;
 
 -- Insert sample data into UserProjects table
-INSERT INTO UserProjects (userId, projectId) VALUES
-(24913, 126), (35682, 152), (27795, 364), (24614, 315), (18502, 155),
-(30562, 332), (18832, 416), (35562, 598), (5526, 655), (26553, 285), (14732, 632);
+INSERT INTO UserProjects (userId, projectId)
+SELECT u.userId, p.projectId
+FROM Users u, Projects p;
 
 -- Insert sample data into DesignProjects table
-INSERT INTO DesignProjects (partNumber, projectId) VALUES
-(256413432, 126), (544545123, 152), (869178821, 364), (238464815, 315),
-(535654652, 155), (498743514, 332), (494651565, 416), (489655316, 598),
-(203248465, 655), (335454554, 285), (854564553, 632);
+INSERT INTO DesignProjects (partNumber, projectId)
+SELECT d.partNumber, p.projectId
+FROM Designs d, Projects p;
 
 -- Insert sample data into DesignUsers table
-INSERT INTO DesignUsers (partNumber, userId) VALUES
-(256413432, 24913), (544545123, 35682), (869178821, 27795), (238464815, 24614),
-(535654652, 18502), (498743514, 30562), (494651565, 18832), (489655316, 35562),
-(203248465, 5526), (335454554, 26553), (854564553, 14732);
+INSERT INTO DesignUsers (partNumber, userId)
+SELECT d.partNumber, u.userId
+FROM Designs d, Users u;
