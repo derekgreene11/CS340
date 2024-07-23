@@ -1,0 +1,4 @@
+Flask==2.3.0
+Flask-MySQLdb==1.0.1
+mysqlclient==2.1.0
+python-dotenv==1.0.0  # or the latest version
