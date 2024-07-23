@@ -4,9 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .btn {
+            padding: 5px 10px;
+            margin: 2px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-add {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-edit {
+            background-color: #ffc107;
+            color: white;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-container {
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Users</h1>
+    <div class="btn-container">
+        <button class="btn btn-add" onclick="window.location.href='/add_user'">Add User</button>
+    </div>
     <table border="1">
         <thead>
             <tr>
@@ -14,6 +75,7 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Discipline</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +85,10 @@
                     <td>{{ user['firstName'] }}</td>
                     <td>{{ user['lastName'] }}</td>
                     <td>{{ user['discipline'] }}</td>
+                    <td>
+                        <button class="btn btn-edit" onclick="window.location.href='/edit_user/{{ user['userId'] }}'">Edit</button>
+                        <button class="btn btn-delete" onclick="window.location.href='/delete_user/{{ user['userId'] }}'">Delete</button>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
