@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Engineering Services Database{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav">
+                <a href="{{ url_for('root') }}" class="button">Home</a>
+                <a href="{{ url_for('designs') }}" class="button">Designs</a>
+                <a href="{{ url_for('requirements') }}" class="button">Requirements</a>
+                <a href="{{ url_for('projects') }}" class="button">Projects</a>
+                <a href="{{ url_for('users') }}" class="button">Users</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

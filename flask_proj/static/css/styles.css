@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+header .container {
+    display: flex;
+    justify-content: center;
+}
+header .nav {
+    display: flex;
+}
+header .nav a {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+header .nav a:hover {
+    background-color: #0056b3;
+}
+header .nav a.active {
+    background-color: #0056b3;
+}
+main.container {
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    min-width: 600px;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #007bff;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #ddd;
+}
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.button {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+.button:hover {
+    background-color: #0056b3;
+}
+.button.delete {
+    background-color: #dc3545;
+}
+.button.delete:hover {
+    background-color: #c82333;
+}
