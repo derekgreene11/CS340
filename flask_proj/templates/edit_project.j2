@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User</title>
+    <title>Edit Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,16 +50,13 @@
     </style>
 </head>
 <body>
-    <h1>Edit User</h1>
-    <form method="POST" action="{{ url_for('edit_user', user_id=user['userId']) }}">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" value="{{ user['firstName'] }}" required>
+    <h1>Edit Project</h1>
+    <form method="POST" action="{{ url_for('edit_project', project_id=project['projectId']) }}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ project['name'] }}" required>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" value="{{ user['lastName'] }}" required>
-
-        <label for="discipline">Discipline:</label>
-        <input type="text" id="discipline" name="discipline" value="{{ user['discipline'] }}" required>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{ project['description'] }}" required>
 
         <button type="submit">Save Changes</button>
     </form>
