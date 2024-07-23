@@ -35,7 +35,7 @@ def add_design():
         except Exception as e:
             print(f"Error: {e}")
             return "There was an error adding the design.", 500
-    return render_template('add_design.j2')
+    return render_template('add_design.html')
 
 @app.route('/edit_design/<int:part_number>', methods=['GET', 'POST'])
 def edit_design(part_number):
