@@ -5,7 +5,6 @@ import os
 import database.db_connector as db
 
 app = Flask(__name__)
-
 db_connection = db.connect_to_database()
 mysql = MySQL(app)
 
