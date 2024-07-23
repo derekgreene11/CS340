@@ -41,10 +41,10 @@ def edit_design(part_number):
     if request.method == 'POST':
         try:
             tool = request.form['tool']
-            revision = request.form.get('revision', None)  # Use `None` if `revision` is optional
+            revision = request.form.get('revision', None)
             query = "UPDATE Designs SET tool = %s, revision = %s WHERE partNumber = %s;"
             db.execute_query(db_connection=db_connection, query=query, query_params=(tool, revision, part_number))
-            db_connection.commit()  # Ensure changes are committed
+            db_connection.commit()
             return redirect(url_for('designs'))
         except Exception as e:
             print(f"Error: {e}")
@@ -60,7 +60,7 @@ def delete_design(part_number):
     try:
         query = "DELETE FROM Designs WHERE partNumber = %s;"
         db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
-        db_connection.commit()  # Ensure changes are committed
+        db_connection.commit()
         return redirect(url_for('designs'))
     except Exception as e:
         print(f"Error: {e}")
@@ -80,7 +80,7 @@ def add_requirement():
             level = request.form['level']
             query = "INSERT INTO Requirements (level) VALUES (%s);"
             db.execute_query(db_connection=db_connection, query=query, query_params=(level,))
-            db_connection.commit()  # Ensure changes are committed
+            db_connection.commit()
             return redirect(url_for('requirements'))
         except Exception as e:
             print(f"Error: {e}")
@@ -94,7 +94,7 @@ def edit_requirement(requirement_id):
             level = request.form['level']
             query = "UPDATE Requirements SET level = %s WHERE requirementId = %s;"
             db.execute_query(db_connection=db_connection, query=query, query_params=(level, requirement_id))
-            db_connection.commit()  # Ensure changes are committed
+            db_connection.commit() 
             return redirect(url_for('requirements'))
         except Exception as e:
             print(f"Error: {e}")
@@ -110,7 +110,7 @@ def delete_requirement(requirement_id):
     try:
         query = "DELETE FROM Requirements WHERE requirementId = %s;"
         db.execute_query(db_connection=db_connection, query=query, query_params=(requirement_id,))
-        db_connection.commit()  # Ensure changes are committed
+        db_connection.commit() 
         return redirect(url_for('requirements'))
     except Exception as e:
         print(f"Error: {e}")
@@ -169,7 +169,7 @@ def add_user():
         discipline = request.form['discipline']
         query = "INSERT INTO Users (firstName, lastName, discipline) VALUES (%s, %s, %s);"
         db.execute_query(db_connection=db_connection, query=query, query_params=(first_name, last_name, discipline))
-        db_connection.commit()  # Ensure changes are committed
+        db_connection.commit()
         return redirect(url_for('users'))
     return render_template('add_user.html')
 
@@ -181,7 +181,7 @@ def edit_user(user_id):
         discipline = request.form['discipline']
         query = "UPDATE Users SET firstName = %s, lastName = %s, discipline = %s WHERE userId = %s;"
         db.execute_query(db_connection=db_connection, query=query, query_params=(first_name, last_name, discipline, user_id))
-        db_connection.commit()  # Ensure changes are committed
+        db_connection.commit()
         return redirect(url_for('users'))
     else:
         query = "SELECT * FROM Users WHERE userId = %s;"
@@ -193,7 +193,7 @@ def edit_user(user_id):
 def delete_user(user_id):
     query = "DELETE FROM Users WHERE userId = %s;"
     db.execute_query(db_connection=db_connection, query=query, query_params=(user_id,))
-    db_connection.commit()  # Ensure changes are committed
+    db_connection.commit()
     return redirect(url_for('users'))
 
 # Listener
