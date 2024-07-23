@@ -1,4 +1,4 @@
-#!/nfs/stak/users/greenede/cs340/flask_proj/venv/bin/python3
+#!/nfs/stak/users/greenede/CS340/flask_proj/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
