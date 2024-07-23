@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designs</title>
+    <title>Projects</title>
 </head>
 <body>
-    <h1>Designs</h1>
+    <h1>Projects</h1>
     <table border="1">
         <thead>
             <tr>
-                <th>Part Number</th>
-                <th>Revision</th>
-                <th>Tool</th>
+                <th>Project ID</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
-            {% for design in designs %}
+            {% for project in projects %}
                 <tr>
-                    <td>{{ design['partNumber'] }}</td>
-                    <td>{{ design['revision'] }}</td>
-                    <td>{{ design['tool'] }}</td>
+                    <td>{{ project['projectId'] }}</td>
+                    <td>{{ project['projectStatus'] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
