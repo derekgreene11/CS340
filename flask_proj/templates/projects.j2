@@ -20,13 +20,11 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            font-size: 16px;
-            min-width: 600px;
         }
         th, td {
-            padding: 12px;
+            border: 1px solid #ccc;
+            padding: 8px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
         }
         th {
             background-color: #007bff;
@@ -35,53 +33,48 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        tr:hover {
-            background-color: #ddd;
-        }
-        .button-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .button {
-            padding: 10px 15px;
-            margin: 5px;
-            background-color: #007bff;
+        a.button {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 2px;
             color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            background-color: #007bff;
             text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
         }
-        .button:hover {
+        a.button:hover {
             background-color: #0056b3;
+        }
+        a.button.delete {
+            background-color: #dc3545;
+        }
+        a.button.delete:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
 <body>
     <h1>Projects</h1>
-    <div class="button-container">
-        <a href="{{ url_for('add_project') }}" class="button">Add Project</a>
-    </div>
+    <a href="{{ url_for('add_project') }}" class="button">Add New Project</a>
     <table>
         <thead>
             <tr>
                 <th>Project ID</th>
-                <th>Name</th>
-                <th>Description</th>
+                <th>Project Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for project in projects %}
-                <tr>
-                    <td>{{ project['projectId'] }}</td>
-                    <td>{{ project['name'] }}</td>
-                    <td>{{ project['description'] }}</td>
-                    <td>
-                        <a href="{{ url_for('edit_project', project_id=project['projectId']) }}" class="button">Edit</a>
-                        <a href="{{ url_for('delete_project', project_id=project['projectId']) }}" class="button" onclick="return confirm('Are you sure you want to delete this project?');">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>{{ project['projectId'] }}</td>
+                <td>{{ project['projectStatus'] }}</td>
+                <td>
+                    <a href="{{ url_for('edit_project', project_id=project['projectId']) }}" class="button">Edit</a>
+                    <a href="{{ url_for('delete_project', project_id=project['projectId']) }}" class="button delete" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>

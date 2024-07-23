@@ -51,13 +51,15 @@
 </head>
 <body>
     <h1>Edit Project</h1>
-    <form method="POST" action="{{ url_for('edit_project', project_id=project['projectId']) }}">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ project['name'] }}" required>
-
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" value="{{ project['description'] }}" required>
-
+    <form method="POST">
+        <label for="projectStatus">Project Status:</label>
+        <select id="projectStatus" name="projectStatus" required>
+            <option value="Not started" {% if project['projectStatus'] == 'Not started' %}selected{% endif %}>Not started</option>
+            <option value="In process" {% if project['projectStatus'] == 'In process' %}selected{% endif %}>In process</option>
+            <option value="On hold" {% if project['projectStatus'] == 'On hold' %}selected{% endif %}>On hold</option>
+            <option value="Completed" {% if project['projectStatus'] == 'Completed' %}selected{% endif %}>Completed</option>
+            <option value="Canceled" {% if project['projectStatus'] == 'Canceled' %}selected{% endif %}>Canceled</option>
+        </select>
         <button type="submit">Save Changes</button>
     </form>
 </body>

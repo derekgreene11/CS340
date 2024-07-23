@@ -48,16 +48,17 @@
             background-color: #0056b3;
         }
     </style>
-</head>
 <body>
     <h1>Add Project</h1>
-    <form method="POST" action="{{ url_for('add_project') }}">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required>
-
+    <form method="POST">
+        <label for="projectStatus">Project Status:</label>
+        <select id="projectStatus" name="projectStatus" required>
+            <option value="Not started">Not started</option>
+            <option value="In process">In process</option>
+            <option value="On hold">On hold</option>
+            <option value="Completed">Completed</option>
+            <option value="Canceled">Canceled</option>
+        </select>
         <button type="submit">Add Project</button>
     </form>
 </body>

@@ -25,12 +25,13 @@ def designs():
 @app.route('/add_design', methods=['GET', 'POST'])
 def add_design():
     if request.method == 'POST':
+        part_number = request.form['partNumber']
+        tool = request.form['tool']
+        revision = request.form.get('revision', None)
+        query = "INSERT INTO Designs (partNumber, tool, revision) VALUES (%s, %s, %s);"
         try:
-            name = request.form['name']
-            description = request.form['description']
-            query = "INSERT INTO Designs (name, description) VALUES (%s, %s);"
-            db.execute_query(db_connection=db_connection, query=query, query_params=(name, description))
-            db_connection.commit()  # Ensure changes are committed
+            db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, tool, revision))
+            db_connection.commit()
             return redirect(url_for('designs'))
         except Exception as e:
             print(f"Error: {e}")
@@ -123,6 +124,37 @@ def projects():
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
     return render_template('projects.j2', projects=results)
+
+@app.route('/add_project', methods=['GET', 'POST'])
+def add_project():
+    if request.method == 'POST':
+        project_status = request.form['projectStatus']
+        query = "INSERT INTO Projects (projectStatus) VALUES (%s);"
+        db.execute_query(db_connection=db_connection, query=query, query_params=(project_status,))
+        db_connection.commit()
+        return redirect(url_for('projects'))
+    return render_template('add_project.j2')
+
+@app.route('/edit_project/<int:project_id>', methods=['GET', 'POST'])
+def edit_project(project_id):
+    if request.method == 'POST':
+        project_status = request.form['projectStatus']
+        query = "UPDATE Projects SET projectStatus = %s WHERE projectId = %s;"
+        db.execute_query(db_connection=db_connection, query=query, query_params=(project_status, project_id))
+        db_connection.commit()
+        return redirect(url_for('projects'))
+    else:
+        query = "SELECT * FROM Projects WHERE projectId = %s;"
+        cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
+        project = cursor.fetchone()
+        return render_template('edit_project.j2', project=project)
+
+@app.route('/delete_project/<int:project_id>')
+def delete_project(project_id):
+    query = "DELETE FROM Projects WHERE projectId = %s;"
+    db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
+    db_connection.commit()
+    return redirect(url_for('projects'))
 
 @app.route('/users')
 def users():
