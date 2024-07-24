@@ -1,0 +1,53 @@
+nohup: ignoring input
+[2024-07-23 18:29:05 -0700] [248228] [INFO] Starting gunicorn 22.0.0
+[2024-07-23 18:29:05 -0700] [248228] [INFO] Listening at: http://0.0.0.0:43277 (248228)
+[2024-07-23 18:29:05 -0700] [248228] [INFO] Using worker: sync
+[2024-07-23 18:29:05 -0700] [248230] [INFO] Booting worker with pid: 248230
+[2024-07-23 18:29:05 -0700] [248231] [INFO] Booting worker with pid: 248231
+[2024-07-23 18:29:05 -0700] [248232] [INFO] Booting worker with pid: 248232
+[2024-07-23 18:29:05 -0700] [248233] [INFO] Booting worker with pid: 248233
+[2024-07-23 18:36:55,173] ERROR in app: Exception on /projects [GET]
+Traceback (most recent call last):
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/nfs/stak/users/greenede/CS340/flask_proj/app.py", line 122, in projects
+    cursor = db.execute_query(db_connection=db_connection, query=query)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/database/db_connector.py", line 48, in execute_query
+    for attempt in range(max_retries):
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/MySQLdb/connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (2006, 'Server has gone away')
+[2024-07-23 18:37:26 -0700] [248228] [CRITICAL] WORKER TIMEOUT (pid:248232)
+[2024-07-23 18:37:26 -0700] [248232] [ERROR] Error handling request (no URI read)
+Traceback (most recent call last):
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    req = next(parser)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/http/parser.py", line 42, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.source_addr, self.req_count)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/http/message.py", line 257, in __init__
+    super().__init__(cfg, unreader, peer_addr)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/http/message.py", line 60, in __init__
+    unused = self.parse(self.unreader)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/http/message.py", line 269, in parse
+    self.get_data(unreader, buf, stop=True)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/http/message.py", line 260, in get_data
+    data = unreader.read()
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/http/unreader.py", line 37, in read
+    d = self.chunk()
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/http/unreader.py", line 64, in chunk
+    return self.sock.recv(self.mxchunk)
+  File "/nfs/stak/users/greenede/CS340/flask_proj/venv/lib64/python3.9/site-packages/gunicorn/workers/base.py", line 203, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2024-07-23 18:37:26 -0700] [248232] [INFO] Worker exiting (pid: 248232)
+[2024-07-23 18:37:26 -0700] [252584] [INFO] Booting worker with pid: 252584

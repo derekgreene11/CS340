@@ -1,3 +1,3 @@
 .vscode/
-flask_proj/venv
-flask_proj/.env
+/flask_proj/venv
+/flask_proj/.env
