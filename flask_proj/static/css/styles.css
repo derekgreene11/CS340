@@ -1,4 +1,5 @@
 body {
+    text-align: center; 
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     color: #333;
@@ -41,7 +42,8 @@ h1 {
     color: #007bff;
 }
 table {
-    width: 100%;
+    width: auto;
+    display: inline-block; 
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
@@ -57,17 +59,17 @@ th {
     color: white;
 }
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #ababab;
 }
 tr:hover {
-    background-color: #ddd;
+    background-color: #00ffaa;
 }
 .button-container {
     text-align: center;
     margin-bottom: 20px;
 }
 .button {
-    padding: 10px 15px;
+    padding: 10px 50px;
     margin: 5px;
     background-color: #007bff;
     color: white;
@@ -167,4 +169,40 @@ button {
 }
 button:hover {
     background-color: #0056b3;
+}
+.button svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+th.actions {
+    background-color: #007bff; /* Same color as the header background */
+    color: white;
+}
+
+/* Ensure Actions column cells have a consistent background color */
+td.actions {
+    background-color: #ffffff; /* Set a specific background color for the Actions column */
+}
+
+
+th.actions {
+    background-color: #007bff; /* Header background color */
+    color: white;
+    text-align: center; /* Center header text */
+    position: relative; /* Positioning for alignment */
+}
+
+/* Actions column cell */
+td.actions {
+    background-color: #ffffff; /* Set a specific background color for the Actions column */
+}
+
+/* Actions header text centering */
+.actions-header {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
 }
