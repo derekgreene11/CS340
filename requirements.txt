@@ -6,7 +6,6 @@ cffi==1.14.5
 cftime==1.5.2
 chardet==4.0.0
 click==8.1.7
-cockpit @ file:///builddir/build/BUILD/cockpit-311.2/tmp/wheel/cockpit-311.2-py3-none-any.whl
 configobj==5.0.6
 configshell-fb==1.1.30
 cupshelpers==1.0
