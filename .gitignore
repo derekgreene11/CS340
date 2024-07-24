@@ -1,3 +1,5 @@
 .vscode/
-/flask_proj/venv
-/flask_proj/.env
+flask_proj/venv/
+flask_proj/.env
+myapp.log
+flask_proj/__pycache__/
