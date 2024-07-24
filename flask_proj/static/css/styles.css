@@ -176,33 +176,25 @@ button:hover {
     fill: white;
 }
 th.actions {
-    background-color: #007bff; /* Same color as the header background */
+    background-color: #007bff;
     color: white;
 }
-
-/* Ensure Actions column cells have a consistent background color */
 td.actions {
-    background-color: #ffffff; /* Set a specific background color for the Actions column */
+    background-color: #ffffff; 
 }
-
-
 th.actions {
-    background-color: #007bff; /* Header background color */
+    background-color: #007bff;
     color: white;
-    text-align: center; /* Center header text */
-    position: relative; /* Positioning for alignment */
+    text-align: center;
+    position: relative;
 }
-
-/* Actions column cell */
 td.actions {
-    background-color: #ffffff; /* Set a specific background color for the Actions column */
+    background-color: #ffffff;
 }
-
-/* Actions header text centering */
 .actions-header {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
+    transform: translateX(-50%);
     top: 50%;
-    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+    transform: translate(-50%, -50%);
 }
