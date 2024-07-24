@@ -1,5 +1,5 @@
 .vscode/
 flask_proj/venv/
 flask_proj/.env
-myapp.log
+*.log
 flask_proj/__pycache__/
