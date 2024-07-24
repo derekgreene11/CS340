@@ -11,10 +11,8 @@
     <form method="POST" action="{{ url_for('edit_design', part_number=design['partNumber']) }}">
         <label for="tool">Tool:</label>
         <input type="text" id="tool" name="tool" value="{{ design['tool'] }}" required>
-
         <label for="revision">Revision:</label>
         <input type="text" id="revision" name="revision" value="{{ design['revision'] if design['revision'] is not none else '' }}">
-
         <button type="submit">Save Changes</button>
     </form>
 </body>
