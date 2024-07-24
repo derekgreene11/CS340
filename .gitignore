@@ -3,3 +3,8 @@ flask_proj/venv/
 flask_proj/.env
 *.log
 flask_proj/__pycache__/
+flask_proj/database/__pycache__/
+/.env
+/venv
+flask_proj/ssh_key
+flask_proj/ssh_key.pub
