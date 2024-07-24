@@ -70,7 +70,6 @@ scour==0.38.1
 selinux==3.6
 sepolicy==3.6
 setools==4.4.4
-setroubleshoot @ file:///builddir/build/BUILD/setroubleshoot-3.3.32/src
 six==1.15.0
 sos==4.7.0
 subscription-manager==1.29.40
