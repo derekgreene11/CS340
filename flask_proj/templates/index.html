@@ -3,6 +3,51 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the Engineering Services Database</h1>
-    <p>This is the central hub for managing designs, requirements, projects, and users. Use the navigation bar above to explore different sections of the database.</p>
+<h1>Welcome to the Engineering Services Database</h1>
+<p>This is the central hub for managing designs, requirements, projects, and users. Use the navigation bar above to explore different sections of the database.</p>
+<img src="{{ url_for('static', filename='images/database_logo.png') }}" alt="Engineering Services Database Logo" width="500" class="float-right">
+<div class="left-align-content">
+    <h2>Project Tools and Technologies</h2>
+    <h3><strong>Frontend:</strong></h3>
+    <div class="center-container">
+    <ul class="centered-list">
+        <li><strong>HTML</strong></li>
+        <li><strong>CSS</strong></li>
+        <li><strong>Bootstrap</strong></li>
+    </ul>
+    </div>
+
+    <h3><strong>Backend:</strong></h3>
+    <div class="center-container">
+    <ul class="centered-list">
+        <li><strong>Flask</strong></li>
+        <li><strong>Python</strong></li>
+    </ul>
+    </div>
+
+    <h3><strong>Templating:</strong></h3>
+    <div class="center-container">
+    <ul class="centered-list">
+        <li><strong>Jinja2</strong></li>
+    </ul>
+    </div>
+
+    <h3><strong>Database Management System (DBMS):</strong></h3>
+    <div class="center-container">
+    <ul class="centered-list">
+        <li><strong>MySQL</strong></li>
+    </ul>
+    </div>
+
+    <h3><strong>Languages Used:</strong></h3>
+    <div class="center-container">
+    <ul class="centered-list">
+        <li><strong>Python</strong></li>
+        <li><strong>HTML</strong></li>
+        <li><strong>CSS</strong></li>
+        <li><strong>SQL</strong></li>
+    </ul>
+    </div>
+    <h3><strong>Made with &#128154; by Derek Greene & Nathan Schuler</strong></h3>
+</div>
 {% endblock %}

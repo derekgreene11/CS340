@@ -41,6 +41,19 @@ h1 {
     text-align: center;
     color: #007bff;
 }
+h2 {
+    color: #007bff;
+}
+.left-align-content li {
+    color:#007bff;
+}
+.left-align-content p {
+    color: #4e5a67;
+}
+h3 {
+    color: #4e5a67;
+    font-size: 20px;
+}
 table {
     width: auto;
     display: inline-block; 
@@ -197,4 +210,17 @@ td.actions {
     transform: translateX(-50%);
     top: 50%;
     transform: translate(-50%, -50%);
+}
+.center-container {
+    text-align: center;
+}
+.centered-list {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.centered-list li {
+    display: inline;
+    margin: 0 10px;
 }

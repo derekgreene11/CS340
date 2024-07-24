@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Engineering Services Database{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header>
@@ -18,10 +19,12 @@
             </div>
         </div>
     </header>
-
     <main class="container">
         {% block content %}
         {% endblock %}
     </main>
 </body>
+<footer>
+    <p>&copy; 2024 Derek Greene & Nathan Schuler. All rights reserved.</p>
+</footer>
 </html>
