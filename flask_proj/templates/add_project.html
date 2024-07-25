@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Add Project</title>
+</head>
 <body>
     <h1>Add Project</h1>
     <form method="POST">
@@ -15,6 +16,12 @@
             <option value="On hold">On hold</option>
             <option value="Completed">Completed</option>
             <option value="Canceled">Canceled</option>
+        </select>
+        <label for="users">Assign Users:</label>
+        <select id="users" name="users" multiple>
+            {% for user in users %}
+                <option value="{{ user['userId'] }}">{{ user['firstName'] }} {{ user['lastName'] }}</option>
+            {% endfor %}
         </select>
         <button type="submit">Add Project</button>
     </form>

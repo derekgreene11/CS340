@@ -17,6 +17,17 @@
             <option value="Completed" {% if project['projectStatus'] == 'Completed' %}selected{% endif %}>Completed</option>
             <option value="Canceled" {% if project['projectStatus'] == 'Canceled' %}selected{% endif %}>Canceled</option>
         </select>
+
+        <label for="users">Assign Users:</label>
+        <select id="users" name="users" multiple>
+            {% for user in users %}
+                <option value="{{ user['userId'] }}"
+                    {% if user['userId'] in assigned_users %}selected{% endif %}>
+                    {{ user['firstName'] }} {{ user['lastName'] }}
+                </option>
+            {% endfor %}
+        </select>
+
         <button type="submit">Save Changes</button>
     </form>
 </body>

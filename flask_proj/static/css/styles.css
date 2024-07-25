@@ -224,3 +224,17 @@ td.actions {
     display: inline;
     margin: 0 10px;
 }
+ul, ol {
+    list-style-type: none;
+    padding: 0;            
+    margin: 0;           
+}
+.centered-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.centered-list li {
+    display: inline;       
+    margin: 0 10px;       
+}

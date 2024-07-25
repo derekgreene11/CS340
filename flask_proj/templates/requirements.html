@@ -12,6 +12,7 @@
             <tr>
                 <th>Requirement ID</th>
                 <th>Level</th>
+                <th>Associated Projects</th>
                 <th class="actions">
                     <div class="actions-header">Actions</div>
             </tr>
@@ -21,11 +22,25 @@
                 <tr>
                     <td>{{ requirement['requirementId'] }}</td>
                     <td>{{ requirement['level'] }}</td>
+                    <td>
+                        {% if requirement['projects'] %}
+                            <div class="projects-container">
+                                {% for project in requirement['projects'] %}
+                                    <div class="project-item">
+                                        <strong>Project ID:</strong> {{ project['projectId'] }}<br>
+                                        <strong>Status:</strong> {{ project['projectStatus'] }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            No associated projects
+                        {% endif %}
+                    </td>
                     <td class="actions">
-                        <a href="{{ url_for('edit_requirement', requirement_id=requirement['requirementId']) }}" class="button"  title="Edit this requirement">
+                        <a href="{{ url_for('edit_requirement', requirement_id=requirement['requirementId']) }}" class="button" title="Edit this requirement">
                             <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="{{ url_for('delete_requirement', requirement_id=requirement['requirementId']) }}" class="button delete" onclick="return confirm('Are you sure you want to delete this requirement?');"  title="Delete this requirement">
+                        <a href="{{ url_for('delete_requirement', requirement_id=requirement['requirementId']) }}" class="button delete" onclick="return confirm('Are you sure you want to delete this requirement?');" title="Delete this requirement">
                             <i class="bi bi-trash3-fill"></i>
                         </a>
                     </td>
