@@ -238,3 +238,6 @@ ul, ol {
     display: inline;       
     margin: 0 10px;       
 }
+.user-projects h2{
+    color: #4e5a67;
+}
