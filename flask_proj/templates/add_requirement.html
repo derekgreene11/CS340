@@ -6,12 +6,30 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Add Requirement</title>
 </head>
-<body>
-    <h1>Add Requirements</h1>
-    <form method="POST">
-        <label for="level">Level:</label>
-        <input type="text" id="level" name="level" required>
-        <button type="submit">Add Requirement</button>
-    </form>
+<body class="add-requirement-page">
+    <div class="container">
+        <h1 class="page-title">Add Requirement</h1>
+        <form method="POST" class="form">
+            <div class="form-group">
+                <label for="level">Level:</label>
+                <select id="level" name="level" required class="form-control">
+                    <option value="">Select Level</option>
+                    {% for level in levels %}
+                        <option value="{{ level }}">{{ level }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="projectId">Associated Project:</label>
+                <select id="projectId" name="projectId" required class="form-control">
+                    <option value="">Select Project</option>
+                    {% for project in projects %}
+                        <option value="{{ project['projectId'] }}">{{ project['projectId'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Requirement</button>
+        </form>
+    </div>
 </body>
 </html>

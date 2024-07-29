@@ -6,14 +6,34 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Edit Design</title>
 </head>
-<body>
-    <h1>Edit Design</h1>
-    <form method="POST" action="{{ url_for('edit_design', part_number=design['partNumber']) }}">
-        <label for="tool">Tool:</label>
-        <input type="text" id="tool" name="tool" value="{{ design['tool'] }}" required>
-        <label for="revision">Revision:</label>
-        <input type="text" id="revision" name="revision" value="{{ design['revision'] if design['revision'] is not none else '' }}">
-        <button type="submit">Save Changes</button>
-    </form>
+<body class="page-edit-project">
+    <div class="container">
+        <h1 class="page-title">Edit Design</h1>
+        <form method="POST" action="{{ url_for('edit_design', part_number=design['partNumber']) }}" class="form">
+            <div class="form-group">
+                <label for="partNumber">Part Number:</label>
+                <input type="text" id="partNumber" name="partNumber" value="{{ design['partNumber'] }}" readonly class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="tool">Tool:</label>
+                <input type="text" id="tool" name="tool" value="{{ design['tool'] }}" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="revision">Revision:</label>
+                <input type="text" id="revision" name="revision" value="{{ design['revision'] if design['revision'] is not none else '' }}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="projectId">Project ID:</label>
+                <select id="projectId" name="projectId" required class="form-control">
+                    {% for project in projects %}
+                        <option value="{{ project['projectId'] }}" {% if project['projectId'] == design['projectId'] %}selected{% endif %}>
+                            {{ project['projectId'] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
 </body>
 </html>

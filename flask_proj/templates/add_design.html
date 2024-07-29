@@ -6,16 +6,37 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Add Design</title>
 </head>
-<body>
-    <h1>Add Designs</h1>
-    <form method="POST" action="{{ url_for('add_design') }}">
-        <label for="partNumber">Part Number:</label>
-        <input type="text" id="partNumber" name="partNumber" required>
-        <label for="tool">Tool:</label>
-        <input type="text" id="tool" name="tool" required>
-        <label for="revision">Revision:</label>
-        <input type="text" id="revision" name="revision">
-        <button type="submit">Add Design</button>
-    </form>
+<body class="add-design-page">
+    <div class="container">
+        <h1 class="page-title">Add Design</h1>
+        <form method="POST" action="{{ url_for('add_design') }}" class="form">
+            <div class="form-group">
+                <label for="partNumber">Part Number:</label>
+                <input type="text" id="partNumber" name="partNumber" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="tool">Tool:</label>
+                <input type="text" id="tool" name="tool" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="revision">Revision:</label>
+                <input type="text" id="revision" name="revision" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="projectId">Project ID:</label>
+                <select id="projectId" name="projectId" required class="form-control">
+                    <option value="">Select Project</option>
+                    {% for project in projects %}
+                        <option value="{{ project['projectId'] }}">{{ project['projectId'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Design</button>
+        </form>
+    </div>
 </body>
 </html>

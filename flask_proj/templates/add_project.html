@@ -7,35 +7,38 @@
     <title>Add Project</title>
 </head>
 <body class="page-add-project">
-    <h1>Add Projects</h1>
-    <form method="POST">
-        <div class="form-group">
-            <label for="projectStatus">Project Status:</label>
-            <select id="projectStatus" name="projectStatus" required>
-                <option value="Not started">Not started</option>
-                <option value="In process">In process</option>
-                <option value="On hold">On hold</option>
-                <option value="Completed">Completed</option>
-                <option value="Canceled">Canceled</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="partNumbers">Part Numbers:</label>
-            <select id="partNumbers" name="partNumbers" multiple required>
-                {% for part in parts %}
-                    <option value="{{ part['partNumber'] }}">{{ part['partNumber'] }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="users">Assign Users:</label>
-            <select id="users" name="users" multiple>
-                {% for user in users %}
-                    <option value="{{ user['userId'] }}">{{ user['firstName'] }} {{ user['lastName'] }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <button type="submit">Add Project</button>
-    </form>
+    <div class="container">
+        <h1 class="page-title">Add Project</h1>
+        <form method="POST" class="form">
+            <div class="form-group">
+                <label for="projectStatus">Project Status:</label>
+                <select id="projectStatus" name="projectStatus" required class="form-control">
+                    <option value="">Select Status</option>
+                    <option value="Not started">Not started</option>
+                    <option value="In process">In process</option>
+                    <option value="On hold">On hold</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Canceled">Canceled</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="partNumbers">Part Numbers:</label>
+                <select id="partNumbers" name="partNumbers" multiple required class="form-control">
+                    {% for part in parts %}
+                        <option value="{{ part['partNumber'] }}">{{ part['partNumber'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="users">Assigned Users:</label>
+                <select id="users" name="users" multiple class="form-control">
+                    {% for user in users %}
+                        <option value="{{ user['userId'] }}">{{ user['firstName'] }} {{ user['lastName'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Project</button>
+        </form>
+    </div>
 </body>
 </html>

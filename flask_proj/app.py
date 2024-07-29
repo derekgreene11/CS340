@@ -26,41 +26,58 @@ def designs():
 
 @app.route('/add_design', methods=['GET', 'POST'])
 def add_design():
+    db_connection = db.connect_to_database()
     if request.method == 'POST':
         part_number = request.form['partNumber']
         tool = request.form['tool']
         revision = request.form.get('revision', None)
+        project_id = request.form['projectId']
         query = "INSERT INTO Designs (partNumber, tool, revision) VALUES (%s, %s, %s);"
-        db_connection = db.connect_to_database()
         try:
             db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, tool, revision))
+            db_connection.commit()
+            query = "INSERT INTO DesignProjects (partNumber, projectId) VALUES (%s, %s);"
+            db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, project_id))
             db_connection.commit()
             return redirect(url_for('designs'))
         except Exception as e:
             print(f"Error: {e}")
             return "There was an error adding the design.", 500
-    return render_template('add_design.html')
+    query = "SELECT projectId FROM Projects;"
+    cursor = db.execute_query(db_connection=db_connection, query=query)
+    projects = cursor.fetchall()
+    return render_template('add_design.html', projects=projects)
 
 @app.route('/edit_design/<int:part_number>', methods=['GET', 'POST'])
 def edit_design(part_number):
+    db_connection = db.connect_to_database()
     if request.method == 'POST':
         tool = request.form['tool']
         revision = request.form.get('revision', None)
+        project_id = request.form['projectId']
         query = "UPDATE Designs SET tool = %s, revision = %s WHERE partNumber = %s;"
-        db_connection = db.connect_to_database()
         try:
             db.execute_query(db_connection=db_connection, query=query, query_params=(tool, revision, part_number))
             db_connection.commit()
+            query = "DELETE FROM DesignProjects WHERE partNumber = %s;"
+            db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
+            db_connection.commit()
+            if project_id:
+                query = "INSERT INTO DesignProjects (partNumber, projectId) VALUES (%s, %s);"
+                db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, project_id))
+                db_connection.commit()
             return redirect(url_for('designs'))
         except Exception as e:
             print(f"Error: {e}")
             return "There was an error editing the design.", 500
     else:
         query = "SELECT * FROM Designs WHERE partNumber = %s;"
-        db_connection = db.connect_to_database()
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
         design = cursor.fetchone()
-        return render_template('edit_design.html', design=design)
+        query = "SELECT projectId FROM Projects;"
+        cursor = db.execute_query(db_connection=db_connection, query=query)
+        projects = cursor.fetchall()
+        return render_template('edit_design.html', design=design, projects=projects)
     
 @app.route('/delete_design/<int:part_number>')
 def delete_design(part_number):
@@ -97,14 +114,27 @@ def add_requirement():
     if request.method == 'POST':
         try:
             level = request.form['level']
+            project_id = request.form['projectId']
             query = "INSERT INTO Requirements (level) VALUES (%s);"
             db.execute_query(db_connection=db_connection, query=query, query_params=(level,))
             db_connection.commit()
+            query = "SELECT LAST_INSERT_ID() AS requirementId;"
+            cursor = db.execute_query(db_connection=db_connection, query=query)
+            result = cursor.fetchone()
+            requirement_id = result['requirementId']
+            if project_id:
+                query = "INSERT INTO ProjectRequirements (projectId, requirementId) VALUES (%s, %s);"
+                db.execute_query(db_connection=db_connection, query=query, query_params=(project_id, requirement_id))
+                db_connection.commit()
             return redirect(url_for('requirements'))
         except Exception as e:
             print(f"Error: {e}")
             return "There was an error adding the requirement.", 500
-    return render_template('add_requirement.html')
+    query = "SELECT projectId FROM Projects;"
+    cursor = db.execute_query(db_connection=db_connection, query=query)
+    projects = cursor.fetchall()
+    levels = ["Low", "Medium", "High"]
+    return render_template('add_requirement.html', projects=projects, levels=levels)
 
 @app.route('/edit_requirement/<int:requirement_id>', methods=['GET', 'POST'])
 def edit_requirement(requirement_id):
@@ -112,9 +142,18 @@ def edit_requirement(requirement_id):
     if request.method == 'POST':
         try:
             level = request.form['level']
+            project_id = request.form.get('projectId', None)
             query = "UPDATE Requirements SET level = %s WHERE requirementId = %s;"
             db.execute_query(db_connection=db_connection, query=query, query_params=(level, requirement_id))
             db_connection.commit()
+            
+            if project_id:
+                query = "DELETE FROM ProjectRequirements WHERE requirementId = %s;"
+                db.execute_query(db_connection=db_connection, query=query, query_params=(requirement_id,))
+                db_connection.commit()
+                query = "INSERT INTO ProjectRequirements (projectId, requirementId) VALUES (%s, %s);"
+                db.execute_query(db_connection=db_connection, query=query, query_params=(project_id, requirement_id))
+                db_connection.commit()
             return redirect(url_for('requirements'))
         except Exception as e:
             print(f"Error: {e}")
@@ -123,7 +162,15 @@ def edit_requirement(requirement_id):
         query = "SELECT * FROM Requirements WHERE requirementId = %s;"
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(requirement_id,))
         requirement = cursor.fetchone()
-        return render_template('edit_requirement.html', requirement=requirement)
+        query = "SELECT * FROM Projects;"
+        cursor = db.execute_query(db_connection=db_connection, query=query)
+        projects = cursor.fetchall()
+        query = "SELECT projectId FROM ProjectRequirements WHERE requirementId = %s;"
+        cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(requirement_id,))
+        associated_project = cursor.fetchone()
+        associated_project_id = associated_project['projectId'] if associated_project else None
+        levels = ["Low", "Medium", "High"]
+        return render_template('edit_requirement.html', requirement=requirement, projects=projects, associated_project_id=associated_project_id, levels=levels)
 
 @app.route('/delete_requirement/<int:requirement_id>')
 def delete_requirement(requirement_id):

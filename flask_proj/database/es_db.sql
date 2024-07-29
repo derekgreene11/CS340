@@ -12,7 +12,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- Requirements table
 CREATE TABLE Requirements (
     requirementId int(11) NOT NULL AUTO_INCREMENT,
-    level ENUM('low', 'medium', 'high') NOT NULL,
+    level ENUM('Low', 'Medium', 'High') NOT NULL,
     PRIMARY KEY (requirementId)
 );
 
@@ -79,8 +79,8 @@ CREATE TABLE DesignUsers (
 
 -- Insert sample data into Requirements table
 INSERT INTO Requirements (requirementId, level) VALUES
-(1, 'low'), (2, 'low'), (3, 'high'), (4, 'medium'), (5, 'medium'),
-(6, 'low'), (7, 'high'), (8, 'high'), (9, 'high'), (10, 'medium'), (11, 'low');
+(1, 'Low'), (2, 'Low'), (3, 'High'), (4, 'Medium'), (5, 'Medium'),
+(6, 'Low'), (7, 'High'), (8, 'High'), (9, 'High'), (10, 'Medium'), (11, 'Low');
 
 -- Insert sample data into Projects table
 INSERT INTO Projects (projectId, projectStatus) VALUES

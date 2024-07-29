@@ -242,144 +242,33 @@ ul, ol {
     color: #4e5a67;
 }
 .page-add-project {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    padding: 20px;
-}
-.page-add-project h1 {
-    text-align: center;
-    color: #007bff;
-    margin-bottom: 20px;
-}
-.page-add-project form {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-.page-add-project label {
-    display: block;
-    margin-bottom: 10px;
-    color: #555;
-}
-.page-add-project select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-}
-.page-add-project button {
-    padding: 10px 20px;
     background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.page-add-project button:hover {
-    background-color: #0056b3;
-}
-.page-add-project .form-group {
-    margin-bottom: 20px;
-}
-.page-add-project .form-group label {
-    font-weight: bold;
-}
-.page-add-project .form-group select {
-    padding: 10px;
-    border: 1px solid #007bff;
-    border-radius: 4px;
-}
-.page-add-project .form-group select:focus {
-    border-color: #0056b3;
-    outline: none;
-}
-.page-add-project {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    padding: 20px;
-}
-.page-add-project h1 {
-    text-align: center;
-    color: #ffff;
-    margin-bottom: 20px;
-}
-.page-add-project form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-.page-add-project .form-group {
-    margin-bottom: 20px;
-}
-.page-add-project label {
-    display: block;
-    margin-bottom: 10px;
-    color: #555;
-    font-size: 14px;
-}
-.page-add-project select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-.page-add-project button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-.page-add-project button:hover {
-    background-color: #0056b3;
-}
-.page-add-project {
-    background-color: #007bff; 
     color: #fff;
     padding: 20px;
 }
+.page-add-project h1{
+    color: #fff;
+}
 .page-add-project form {
-    max-width: 800px;
-    margin: 0 auto;
+    background-color: #ffffff;
     padding: 20px;
-    background-color: #fff; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.page-add-project label {
-    color: #333; 
-}
-.page-add-project select {
+.add-project label,
+.add-project input,
+.add-project select,
+.add-project button {
+    display: block;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    margin-bottom: 15px;
 }
-.page-add-project button {
-    padding: 10px 20px;
+.add-project button {
     background-color: #007bff;
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    padding: 10px;
     cursor: pointer;
-    font-size: 16px;
 }
 .page-add-project button:hover {
     background-color: #0056b3;
@@ -432,4 +321,138 @@ ul, ol {
 }
 .page-edit-project button:hover {
     background-color: #0056b3;
+}
+.page-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+}
+.btn-primary {
+    background-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.add-design-page {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+}
+.add-design-page form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.add-design-page label,
+.add-design-page input,
+.add-design-page select,
+.add-design-page button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.add-design-page button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.add-design-page button:hover {
+    background-color: #0056b3;
+}
+.add-design-page h1{
+    color: #fff;
+}
+.page-edit-project {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+}
+.page-edit-project h1 {
+    color: #fff;
+}
+.page-edit-project form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.page-edit-project label,
+.page-edit-project input,
+.page-edit-project select,
+.page-edit-project button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.page-edit-project button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.page-edit-project button:hover {
+    background-color: #0056b3;
+}
+.add-requirement-page {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+}
+.add-requirement-page h1 {
+    color: #fff;
+}
+.edit-requirement-page {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+}
+.edit-requirement-page h1 {
+    color: #fff;
+}
+.add-user-page {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+}
+.add-user-page h1 {
+    color: #fff;
+}
+.edit-user-page {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+}
+.edit-user-page h1 {
+    color: #fff;
 }
