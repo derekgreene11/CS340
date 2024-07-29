@@ -7,41 +7,44 @@
     <title>Edit Project</title>
 </head>
 <body class="page-edit-project">
-    <h1>Edit Projects</h1>
-    <form method="POST">
-        <div class="form-group">
-            <label for="projectStatus">Project Status:</label>
-            <select id="projectStatus" name="projectStatus" required>
-                <option value="Not started" {% if project['projectStatus'] == 'Not started' %}selected{% endif %}>Not started</option>
-                <option value="In process" {% if project['projectStatus'] == 'In process' %}selected{% endif %}>In process</option>
-                <option value="On hold" {% if project['projectStatus'] == 'On hold' %}selected{% endif %}>On hold</option>
-                <option value="Completed" {% if project['projectStatus'] == 'Completed' %}selected{% endif %}>Completed</option>
-                <option value="Canceled" {% if project['projectStatus'] == 'Canceled' %}selected{% endif %}>Canceled</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="partNumbers">Part Numbers:</label>
-            <select id="partNumbers" name="partNumbers" multiple required>
-                {% for part in parts %}
-                    <option value="{{ part['partNumber'] }}"
-                        {% if part['partNumber'] in project_parts %}selected{% endif %}>
-                        {{ part['partNumber'] }}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="users">Assign Users:</label>
-            <select id="users" name="users" multiple>
-                {% for user in users %}
-                    <option value="{{ user['userId'] }}"
-                        {% if user['userId'] in assigned_users %}selected{% endif %}>
-                        {{ user['firstName'] }} {{ user['lastName'] }}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
-        <button type="submit">Save Changes</button>
-    </form>
+    <div class="container">
+        <h1>Edit Project</h1>
+        <form method="POST" class="form">
+            <div class="form-group">
+                <label for="projectStatus">Project Status:</label>
+                <select id="projectStatus" name="projectStatus" required class="form-control">
+                    <option value="Not started" {% if project['projectStatus'] == 'Not started' %}selected{% endif %}>Not started</option>
+                    <option value="In process" {% if project['projectStatus'] == 'In process' %}selected{% endif %}>In process</option>
+                    <option value="On hold" {% if project['projectStatus'] == 'On hold' %}selected{% endif %}>On hold</option>
+                    <option value="Completed" {% if project['projectStatus'] == 'Completed' %}selected{% endif %}>Completed</option>
+                    <option value="Canceled" {% if project['projectStatus'] == 'Canceled' %}selected{% endif %}>Canceled</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="partNumbers">Part Numbers:</label>
+                <select id="partNumbers" name="partNumbers" multiple required class="form-control">
+                    {% for part in parts %}
+                        <option value="{{ part['partNumber'] }}"
+                            {% if part['partNumber'] in project_parts %}selected{% endif %}>
+                            {{ part['partNumber'] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="users">Assign Users:</label>
+                <select id="users" name="users" multiple class="form-control">
+                    {% for user in users %}
+                        <option value="{{ user['userId'] }}"
+                            {% if user['userId'] in assigned_users %}selected{% endif %}>
+                            {{ user['firstName'] }} {{ user['lastName'] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="{{ url_for('projects') }}" class="btn btn-cancel">Cancel</a>
+        </form>
+    </div>
 </body>
 </html>

@@ -456,3 +456,19 @@ ul, ol {
 .edit-user-page h1 {
     color: #fff;
 }
+.btn-cancel {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn-cancel:hover {
+    background-color: darkred;
+}

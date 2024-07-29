@@ -8,21 +8,24 @@
         <a href="{{ url_for('add_project') }}" class="button">Add Project</a>
     </div>
     <div class="user-projects">
-        {% for user_id, user_data in grouped_projects.items() %}
-            <h2>User: {{ user_data.name }} (ID: {{ user_id }})</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Project ID</th>
-                        <th>Project Status</th>
-                        <th class="actions">
-                            <div class="actions-header">Actions</div>
-                    </tr>
-                </thead>
-                <tbody>
+        <table>
+            <thead>
+                <tr>
+                    <th>Project ID</th>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Project Status</th>
+                    <th class="actions">
+                        <div class="actions-header">Actions</div>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user_id, user_data in grouped_projects.items() %}
                     {% for project in user_data.projects %}
                     <tr>
                         <td>{{ project.projectId }}</td>
+                        <td>{{ user_id }}</td>
+                        <td>{{ user_data.name }}</td>
                         <td>{{ project.projectStatus }}</td>
                         <td class="actions">
                             <a href="{{ url_for('edit_project', project_id=project.projectId) }}" class="button" title="Edit this project">
@@ -34,8 +37,8 @@
                         </td>
                     </tr>
                     {% endfor %}
-                </tbody>
-            </table>
-        {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}
