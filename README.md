@@ -2,7 +2,7 @@
 $${\color{red}DUE \space\space 7/25}$$
 ## Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion )
 
-- [ ] Zip of the following named ProjectGroup12_Step3_DRAFT.zip
+:white_check_mark: Zip of the following named ProjectGroup12_Step3_DRAFT.zip
 
 
 ## Step 1
