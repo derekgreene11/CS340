@@ -174,35 +174,38 @@ def projects():
 
 @app.route('/add_project', methods=['GET', 'POST'])
 def add_project():
+    db_connection = db.connect_to_database()
     if request.method == 'POST':
         project_status = request.form['projectStatus']
+        selected_part_numbers = request.form.getlist('partNumbers')
         selected_users = request.form.getlist('users')
-        db_connection = db.connect_to_database()
-        try:
-            query = "INSERT INTO Projects (projectStatus) VALUES (%s);"
-            db.execute_query(db_connection=db_connection, query=query, query_params=(project_status,))
-            db_connection.commit()
-            query = "SELECT LAST_INSERT_ID() AS projectId;"
-            cursor = db.execute_query(db_connection=db_connection, query=query)
-            result = cursor.fetchone()
-            project_id = result['projectId']
-            if selected_users:
-                query = "INSERT INTO UserProjects (userId, projectId) VALUES (%s, %s);"
-                for user_id in selected_users:
-                    db.execute_query(db_connection=db_connection, query=query, query_params=(user_id, project_id))
-                db_connection.commit()
-
-            return redirect(url_for('projects'))
-        except Exception as e:
-            print(f"Error: {e}")
-            return "There was an error adding the project.", 500
-
-    else:
-        db_connection = db.connect_to_database()
-        query = "SELECT userId, firstName, lastName FROM Users;"
+        query = "INSERT INTO Projects (projectStatus) VALUES (%s);"
+        db.execute_query(db_connection=db_connection, query=query, query_params=(project_status,))
+        db_connection.commit()
+        query = "SELECT LAST_INSERT_ID() AS projectId;"
         cursor = db.execute_query(db_connection=db_connection, query=query)
-        users = cursor.fetchall()
-        return render_template('add_project.html', users=users)
+        result = cursor.fetchone()
+        project_id = result['projectId']
+
+        if selected_part_numbers:
+            query = "INSERT INTO DesignProjects (partNumber, projectId) VALUES (%s, %s);"
+            for part_number in selected_part_numbers:
+                db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, project_id))
+            db_connection.commit()
+        if selected_users:
+            query = "INSERT INTO UserProjects (userId, projectId) VALUES (%s, %s);"
+            for user_id in selected_users:
+                db.execute_query(db_connection=db_connection, query=query, query_params=(user_id, project_id))
+            db_connection.commit()
+        return redirect(url_for('projects'))
+    
+    query_users = "SELECT userId, firstName, lastName FROM Users;"
+    cursor_users = db.execute_query(db_connection=db_connection, query=query_users)
+    users = cursor_users.fetchall()
+    query_parts = "SELECT DISTINCT partNumber FROM Designs;"
+    cursor_parts = db.execute_query(db_connection=db_connection, query=query_parts)
+    parts = cursor_parts.fetchall()
+    return render_template('add_project.html', users=users, parts=parts)
 
 @app.route('/edit_project/<int:project_id>', methods=['GET', 'POST'])
 def edit_project(project_id):
@@ -210,6 +213,7 @@ def edit_project(project_id):
     if request.method == 'POST':
         project_status = request.form['projectStatus']
         selected_users = request.form.getlist('users')
+        selected_part_numbers = request.form.getlist('partNumbers')
         try:
             query = "UPDATE Projects SET projectStatus = %s WHERE projectId = %s;"
             db.execute_query(db_connection=db_connection, query=query, query_params=(project_status, project_id))
@@ -222,6 +226,15 @@ def edit_project(project_id):
                 for user_id in selected_users:
                     db.execute_query(db_connection=db_connection, query=query, query_params=(user_id, project_id))
                 db_connection.commit()
+            query = "DELETE FROM DesignProjects WHERE projectId = %s;"
+            db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
+            db_connection.commit()
+            if selected_part_numbers:
+                query = "INSERT INTO DesignProjects (partNumber, projectId) VALUES (%s, %s);"
+                for part_number in selected_part_numbers:
+                    db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, project_id))
+                db_connection.commit()
+
             return redirect(url_for('projects'))
         except Exception as e:
             print(f"Error: {e}")
@@ -230,13 +243,19 @@ def edit_project(project_id):
         query = "SELECT * FROM Projects WHERE projectId = %s;"
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
         project = cursor.fetchone()
+        query = "SELECT partNumber FROM DesignProjects WHERE projectId = %s;"
+        cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
+        project_parts = [row['partNumber'] for row in cursor.fetchall()]
         query = "SELECT userId, firstName, lastName FROM Users;"
         cursor = db.execute_query(db_connection=db_connection, query=query)
         users = cursor.fetchall()
         query = "SELECT userId FROM UserProjects WHERE projectId = %s;"
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
         assigned_users = [row['userId'] for row in cursor.fetchall()]
-        return render_template('edit_project.html', project=project, users=users, assigned_users=assigned_users)
+        query = "SELECT DISTINCT partNumber FROM Designs;"
+        cursor = db.execute_query(db_connection=db_connection, query=query)
+        parts = cursor.fetchall()
+        return render_template('edit_project.html', project=project, users=users, assigned_users=assigned_users, parts=parts, project_parts=project_parts)
 
 @app.route('/delete_project/<int:project_id>')
 def delete_project(project_id):
