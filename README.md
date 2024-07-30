@@ -7,6 +7,7 @@ $${\color{red}DUE \space\space 8/1}$$
 - PDF outline
 - SQL DDL (See [es_db.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_db.sql))
 - SQL DML (See [es_dml.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_dml.sql))
+
 $${\color{red}DUE \space\space 8/5}$$
 # Project Step 4 Draft Version: Implement CRUD for One Entity (Group on Ed Discussions)
 
