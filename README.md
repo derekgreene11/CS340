@@ -1,5 +1,5 @@
 # TO-DO 
-$${\color{red}DUE \space\space 7/25}$$
+$${\color{red}DUE \space\space 8/5}$$
 # Project Step 3 Final Version: Design HTML Interface (Group / On Canvas)
 
 :white_check_mark: Zip of the following named ProjectGroup12_Step3_FINAL.zip
