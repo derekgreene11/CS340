@@ -1,21 +1,38 @@
 # TO-DO 
 $${\color{red}DUE \space\space 7/25}$$
-## Project Step 3 Draft Version: Design HTML Interface + DML SQL (Group / On Ed Discussion )
+# Project Step 3 Final Version: Design HTML Interface (Group / On Canvas)
 
-:white_check_mark: Zip of the following named ProjectGroup12_Step3_DRAFT.zip
+:white_check_mark: Zip of the following named ProjectGroup12_Step3_FINAL.zip
 
+
+# Project Step 4 Draft Version: Implement CRUD for One Entity (Group on Ed Discussions)
 
 ## Step 1
 
-:white_check_mark: A .PDF file containing information from previous steps
+- [ ] Post the the ZIP file ProjectGroup12_Step4_DRAFT.zip and the URL of website (See [Flask App](http://classwork.engr.oregonstate.edu:43277/))in Ed Discussion post for Project Step 4 Draft Version. 
 
-:white_check_mark: A URL to an index.html listing all your HTML pages. Put this URL on the top of your PDF file as well as on your discussion post. (See [Flask App](http://classwork.engr.oregonstate.edu:43277/))
+Zip file to include:
 
+- PDF outline
+- SQL DDL (See [es_db.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_db.sql))
+- SQL DML (See [es_dml.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_dml.sql))
 
-:white_check_mark: The .SQL file containing your Data Manipulation Queries. These are the queries that your website uses to let your users interact with data. Thus SELECT, INSERT, UPDATE and DELETE queries to provide the functionalities described in the CS340 Project Guide. (See [es_dml.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_dml.sql))
+Include the following information in post:
 
-:white_check_mark: The .SQL file containing your Data Definition Queries and the sample data INSERT statements from the previous step. (See [es_db.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_db.sql))
+- What technology you're using (e.g. NodeJS/Flask Python),
+- What works,
+- What doesn’t work,
+- Where/why you are blocked.
+
+## Step 2
+- [ ] Post the the ZIP file ProjectGroup12_Step4_DRAFT.zip and the URL of website (See [Flask App](http://classwork.engr.oregonstate.edu:43277/)) in Canvas. 
+
+- PDF outline
+- SQL DDL (See [es_db.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_db.sql))
+- SQL DML (See [es_dml.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_dml.sql))
+- Current version of HTML and server-side code. (See [app.py](https://github.com/derekgreene11/CS340/blob/main/flask_proj/app.py), [db_connector.py](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/db_connector.py), [/templates](https://github.com/derekgreene11/CS340/tree/main/flask_proj/templates), [styles.css](https://github.com/derekgreene11/CS340/blob/main/flask_proj/static/css/styles.css))
+
 
 ## Rubric
 
-[Rubric](https://canvas.oregonstate.edu/courses/1967354/assignments/9690212)
+[Rubric](https://canvas.oregonstate.edu/courses/1967354/assignments/9690215)
