@@ -34,6 +34,7 @@
             <div class="form-group">
                 <label for="users">Assign Users:</label>
                 <select id="users" name="users" multiple class="form-control">
+                    <option value="" {% if not assigned_users %}selected{% endif %}>None</option>
                     {% for user in users %}
                         <option value="{{ user['userId'] }}"
                             {% if user['userId'] in assigned_users %}selected{% endif %}>

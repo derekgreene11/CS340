@@ -52,8 +52,8 @@ CREATE TABLE ProjectRequirements (
 
 -- User-Project intersection table
 CREATE TABLE UserProjects (
-    userId int(11) NOT NULL,
-    projectId int(11) NOT NULL,
+    userId int(11) DEFAULT NULL,
+    projectId int(11) DEFAULT NULL,
     PRIMARY KEY (userId, projectId),
     FOREIGN KEY (userId) REFERENCES Users(userId) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (projectId) REFERENCES Projects(projectId) ON UPDATE CASCADE ON DELETE CASCADE

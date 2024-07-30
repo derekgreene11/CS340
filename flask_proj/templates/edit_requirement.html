@@ -21,6 +21,7 @@
             <div class="form-group">
                 <label for="projectId">Associated Project:</label>
                 <select id="projectId" name="projectId" class="form-control">
+                    <option value="">None</option>
                     {% for project in projects %}
                         <option value="{{ project['projectId'] }}" {% if project['projectId'] == associated_project_id %}selected{% endif %}>
                             Project ID: {{ project['projectId'] }} - Status: {{ project['projectStatus'] }}

@@ -146,11 +146,10 @@ def edit_requirement(requirement_id):
             query = "UPDATE Requirements SET level = %s WHERE requirementId = %s;"
             db.execute_query(db_connection=db_connection, query=query, query_params=(level, requirement_id))
             db_connection.commit()
-            
+            query = "DELETE FROM ProjectRequirements WHERE requirementId = %s;"
+            db.execute_query(db_connection=db_connection, query=query, query_params=(requirement_id,))
+            db_connection.commit()
             if project_id:
-                query = "DELETE FROM ProjectRequirements WHERE requirementId = %s;"
-                db.execute_query(db_connection=db_connection, query=query, query_params=(requirement_id,))
-                db_connection.commit()
                 query = "INSERT INTO ProjectRequirements (projectId, requirementId) VALUES (%s, %s);"
                 db.execute_query(db_connection=db_connection, query=query, query_params=(project_id, requirement_id))
                 db_connection.commit()
@@ -187,38 +186,45 @@ def delete_requirement(requirement_id):
 @app.route('/projects')
 def projects():
     db_connection = db.connect_to_database()
-    query = """
-        SELECT 
-            u.userId,
-            u.firstName,
-            u.lastName,
-            p.projectId,
-            p.projectStatus
-        FROM 
-            Users u
-        JOIN 
-            UserProjects up ON u.userId = up.userId
-        JOIN 
-            Projects p ON up.projectId = p.projectId
-        ORDER BY 
-            u.userId, p.projectId;
-    """
-    cursor = db.execute_query(db_connection=db_connection, query=query)
-    results = cursor.fetchall()
-    grouped_projects = {}
-    for row in results:
-        user_id = row['userId']
-        if user_id not in grouped_projects:
-            grouped_projects[user_id] = {
-                'name': f"{row['firstName']} {row['lastName']}",
-                'projects': []
-            }
-        grouped_projects[user_id]['projects'].append({
-            'projectId': row['projectId'],
-            'projectStatus': row['projectStatus']
-        })
-    return render_template('projects.html', grouped_projects=grouped_projects)
-
+    try:
+        query_projects = """
+            SELECT p.projectId, p.projectStatus
+            FROM Projects p;
+        """
+        cursor_projects = db.execute_query(db_connection=db_connection, query=query_projects)
+        all_projects = cursor_projects.fetchall()
+        query_user_projects = """
+            SELECT p.projectId, p.projectStatus, u.userId, u.firstName, u.lastName
+            FROM Projects p
+            LEFT JOIN UserProjects up ON p.projectId = up.projectId
+            LEFT JOIN Users u ON up.userId = u.userId
+            ORDER BY p.projectId, u.userId;
+        """
+        cursor_user_projects = db.execute_query(db_connection=db_connection, query=query_user_projects)
+        user_projects = cursor_user_projects.fetchall()
+        grouped_projects = {}
+        for project in all_projects:
+            project_id = project['projectId']
+            if project_id not in grouped_projects:
+                grouped_projects[project_id] = {
+                    'projectStatus': project['projectStatus'],
+                    'users': []
+                }
+        for project in user_projects:
+            project_id = project['projectId']
+            if project_id in grouped_projects:
+                user_id = project['userId']
+                if user_id:
+                    if not any(user['userId'] == user_id for user in grouped_projects[project_id]['users']):
+                        grouped_projects[project_id]['users'].append({
+                            'userId': user_id,
+                            'name': f"{project['firstName']} {project['lastName']}"
+                        })
+        return render_template('projects.html', grouped_projects=grouped_projects)
+    except Exception as e:
+        print(f"Error: {e}")
+        return "There was an error fetching the projects.", 500
+    
 @app.route('/add_project', methods=['GET', 'POST'])
 def add_project():
     db_connection = db.connect_to_database()
@@ -268,11 +274,13 @@ def edit_project(project_id):
             query = "DELETE FROM UserProjects WHERE projectId = %s;"
             db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
             db_connection.commit()
-            if selected_users:
+            if selected_users and selected_users[0]:
                 query = "INSERT INTO UserProjects (userId, projectId) VALUES (%s, %s);"
                 for user_id in selected_users:
-                    db.execute_query(db_connection=db_connection, query=query, query_params=(user_id, project_id))
+                    if user_id: 
+                        db.execute_query(db_connection=db_connection, query=query, query_params=(user_id, project_id))
                 db_connection.commit()
+
             query = "DELETE FROM DesignProjects WHERE projectId = %s;"
             db.execute_query(db_connection=db_connection, query=query, query_params=(project_id,))
             db_connection.commit()
@@ -281,7 +289,6 @@ def edit_project(project_id):
                 for part_number in selected_part_numbers:
                     db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, project_id))
                 db_connection.commit()
-
             return redirect(url_for('projects'))
         except Exception as e:
             print(f"Error: {e}")
