@@ -11,6 +11,7 @@ mysql = MySQL(app)
 def root():
     return render_template('index.html')
 
+# Route to display all designs and associated projects
 @app.route('/designs')
 def designs():
     db_connection = db.connect_to_database()
@@ -24,6 +25,7 @@ def designs():
     results = cursor.fetchall()
     return render_template('designs.html', designs=results)
 
+# Route to add a new design
 @app.route('/add_design', methods=['GET', 'POST'])
 def add_design():
     db_connection = db.connect_to_database()
@@ -48,6 +50,7 @@ def add_design():
     projects = cursor.fetchall()
     return render_template('add_design.html', projects=projects)
 
+# Route to edit a design
 @app.route('/edit_design/<int:part_number>', methods=['GET', 'POST'])
 def edit_design(part_number):
     db_connection = db.connect_to_database()
@@ -78,7 +81,8 @@ def edit_design(part_number):
         cursor = db.execute_query(db_connection=db_connection, query=query)
         projects = cursor.fetchall()
         return render_template('edit_design.html', design=design, projects=projects)
-    
+
+# Route to delete a design    
 @app.route('/delete_design/<int:part_number>')
 def delete_design(part_number):
     query = "DELETE FROM Designs WHERE partNumber = %s;"
@@ -91,6 +95,7 @@ def delete_design(part_number):
         print(f"Error: {e}")
         return "There was an error deleting the design.", 500
 
+# Route to display all requirements and associated projects
 @app.route('/requirements')
 def requirements():
     db_connection = db.connect_to_database()
@@ -108,6 +113,7 @@ def requirements():
         requirement['projects'] = cursor.fetchall()
     return render_template('requirements.html', requirements=requirements)
 
+# Route to add a requirement
 @app.route('/add_requirement', methods=['GET', 'POST'])
 def add_requirement():
     db_connection = db.connect_to_database()
@@ -136,6 +142,7 @@ def add_requirement():
     levels = ["Low", "Medium", "High"]
     return render_template('add_requirement.html', projects=projects, levels=levels)
 
+# Route to edit a requirement
 @app.route('/edit_requirement/<int:requirement_id>', methods=['GET', 'POST'])
 def edit_requirement(requirement_id):
     db_connection = db.connect_to_database()
@@ -171,6 +178,7 @@ def edit_requirement(requirement_id):
         levels = ["Low", "Medium", "High"]
         return render_template('edit_requirement.html', requirement=requirement, projects=projects, associated_project_id=associated_project_id, levels=levels)
 
+# Route to delete a requirement
 @app.route('/delete_requirement/<int:requirement_id>')
 def delete_requirement(requirement_id):
     query = "DELETE FROM Requirements WHERE requirementId = %s;"
@@ -183,6 +191,7 @@ def delete_requirement(requirement_id):
         print(f"Error: {e}")
         return "There was an error deleting the requirement.", 500
 
+# Route to display all projects and assocated users and designs
 @app.route('/projects')
 def projects():
     db_connection = db.connect_to_database()
@@ -224,7 +233,8 @@ def projects():
     except Exception as e:
         print(f"Error: {e}")
         return "There was an error fetching the projects.", 500
-    
+
+# Route to add a project     
 @app.route('/add_project', methods=['GET', 'POST'])
 def add_project():
     db_connection = db.connect_to_database()
@@ -260,6 +270,7 @@ def add_project():
     parts = cursor_parts.fetchall()
     return render_template('add_project.html', users=users, parts=parts)
 
+# Route to edit a project
 @app.route('/edit_project/<int:project_id>', methods=['GET', 'POST'])
 def edit_project(project_id):
     db_connection = db.connect_to_database()
@@ -311,6 +322,7 @@ def edit_project(project_id):
         parts = cursor.fetchall()
         return render_template('edit_project.html', project=project, users=users, assigned_users=assigned_users, parts=parts, project_parts=project_parts)
 
+# Route to delete a project
 @app.route('/delete_project/<int:project_id>')
 def delete_project(project_id):
     query = "DELETE FROM Projects WHERE projectId = %s;"
@@ -319,6 +331,7 @@ def delete_project(project_id):
     db_connection.commit()
     return redirect(url_for('projects'))
 
+# Route to display all users
 @app.route('/users')
 def users():
     db_connection = db.connect_to_database()
@@ -327,6 +340,7 @@ def users():
     results = cursor.fetchall()
     return render_template('users.html', users=results)
 
+# Route to add a user
 @app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
     if request.method == 'POST':
@@ -340,6 +354,7 @@ def add_user():
         return redirect(url_for('users'))
     return render_template('add_user.html')
 
+# Route to edit a user
 @app.route('/edit_user/<int:user_id>', methods=['GET', 'POST'])
 def edit_user(user_id):
     if request.method == 'POST':
@@ -357,7 +372,8 @@ def edit_user(user_id):
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(user_id,))
         user = cursor.fetchone()
         return render_template('edit_user.html', user=user)
-    
+
+# Route to delete a user    
 @app.route('/delete_user/<int:user_id>')
 def delete_user(user_id):
     query = "DELETE FROM Users WHERE userId = %s;"
