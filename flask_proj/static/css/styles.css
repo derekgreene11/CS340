@@ -273,55 +273,6 @@ ul, ol {
 .page-add-project button:hover {
     background-color: #0056b3;
 }
-.page-edit-project {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-.page-edit-project h1 {
-    color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.page-edit-project form {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    color: #333;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-.page-edit-project .form-group {
-    margin-bottom: 20px;
-}
-.page-edit-project label {
-    display: block;
-    margin-bottom: 10px;
-    color: #555;
-    font-size: 14px;
-}
-.page-edit-project select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-.page-edit-project button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.page-edit-project button:hover {
-    background-color: #0056b3;
-}
 .page-title {
     font-size: 2em;
     margin-bottom: 20px;
@@ -365,64 +316,8 @@ ul, ol {
     color: #fff;
     padding: 20px;
 }
-.add-design-page form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.add-design-page label,
-.add-design-page input,
-.add-design-page select,
-.add-design-page button {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-}
-.add-design-page button {
-    background-color: #007bff;
+.add-design-page h1 {
     color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-.add-design-page button:hover {
-    background-color: #0056b3;
-}
-.add-design-page h1{
-    color: #fff;
-}
-.page-edit-project {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px;
-}
-.page-edit-project h1 {
-    color: #fff;
-}
-.page-edit-project form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.page-edit-project label,
-.page-edit-project input,
-.page-edit-project select,
-.page-edit-project button {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-}
-.page-edit-project button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-.page-edit-project button:hover {
-    background-color: #0056b3;
 }
 .add-requirement-page {
     background-color: #007bff;
@@ -454,6 +349,14 @@ ul, ol {
     padding: 20px;
 }
 .edit-user-page h1 {
+    color: #fff;
+}
+.page-edit-project {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+}
+.page-edit-project h1 {
     color: #fff;
 }
 .btn-cancel {
