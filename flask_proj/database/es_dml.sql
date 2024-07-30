@@ -34,6 +34,12 @@ SELECT * FROM Requirements;
 -- Fetch all users
 SELECT * FROM Users;
 
+-- Fetch all projects
+SELECT * FROM Projects
+
+-- Fetch all designs
+SELECT * FROM Designs
+
 -- Fetch all users with their ID, first name, and last name
 SELECT userId, firstName, lastName FROM Users;
 
