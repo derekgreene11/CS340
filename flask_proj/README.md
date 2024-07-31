@@ -31,7 +31,7 @@ Load the Engineering Services SQL and sample data into the database
 
 `source database/es_db.sql`
 
-Create a .env file in the CS340/flask_proje directory & paste the credentials for the MySQL database 
+Create a .env file in the CS340/flask_proj directory & paste the credentials for the MySQL database 
 
 ```
 340DBHOST=localhost
