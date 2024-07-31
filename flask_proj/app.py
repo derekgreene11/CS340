@@ -1,3 +1,7 @@
+# Authors: Derek Greene & Nathan Schuler
+# Date: 7/2024
+# Course: CS340 - Introduction to Database
+
 from flask import Flask, render_template, redirect, url_for, request
 from flask_mysqldb import MySQL
 import database.db_connector as db

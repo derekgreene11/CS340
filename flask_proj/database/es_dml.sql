@@ -1,3 +1,6 @@
+-- Authors: Derek Greene & Nathan Schuler
+-- Date: 7/2024
+-- Course: CS340 - Introduction to Database
 -- ******************** CRUD ***************************
 -- C(reate):
 -- Used in the add_design form to add a new design

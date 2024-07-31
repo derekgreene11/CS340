@@ -1,3 +1,7 @@
+-- Authors: Derek Greene & Nathan Schuler
+-- Date: 7/2024
+-- Course: CS340 - Introduction to Database
+
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS Requirements;
 DROP TABLE IF EXISTS Projects;
@@ -52,8 +56,8 @@ CREATE TABLE ProjectRequirements (
 
 -- User-Project intersection table
 CREATE TABLE UserProjects (
-    userId int(11) DEFAULT NULL,
-    projectId int(11) DEFAULT NULL,
+    userId int(11),
+    projectId int(11),
     PRIMARY KEY (userId, projectId),
     FOREIGN KEY (userId) REFERENCES Users(userId) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (projectId) REFERENCES Projects(projectId) ON UPDATE CASCADE ON DELETE CASCADE
