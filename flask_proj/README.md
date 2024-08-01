@@ -4,6 +4,7 @@ Final project for Introduction to Databases - CS340 @ OSU
 
 Made with :green_heart: by Derek Greene & Nathan Schuler
 
+See this app in action at https://www.derekrgreene.com/flask/
 ## Description
 
 Three tier architecutre application built with:
