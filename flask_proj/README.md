@@ -1,23 +1,21 @@
-# <span style="color: #007bff;">Engineering Services Database</span>
+# Engineering Services Database
 
-Final project for Introduction to Databases - CS340 @ <span style="color: #D73F09;">O</span>S<span style="color: #D73F09;">U</span>
+Final project for Introduction to Databases - CS340 @ OSU
 
 Made with :green_heart: by Derek Greene & Nathan Schuler
 
-## <span style="color: #007bff;">Description</span>
+## Description
 
 Three tier architecutre application built with:
 
-<ul>
-<li style="color: limegreen;"><span style="color: limegreen;">Flask/Python</span></li>
-<li style="color: lightblue;"><span style="color: lightblue;">MySQL</span></li>
-<li style="color: #FF00FF;"><span style="color: #FF00FF;">HTML/CSS</span></li>
-<li style="color: #F08080;"><span style="color: #F08080;">Jinja2</span></li>
-</ul>
+- Flask/Python
+- MySQL
+- HTML/CSS
+- Jinja2
 
 Application showcases web development & database knowledge. Users are able to view, add, edit, and remove records from various tables in the Engineering Services Database. 
 
-## <span style="color: #007bff;">Getting started</span>
+## Getting started
 
 Clone the repository
 
@@ -53,7 +51,7 @@ Install requirements.txt
 
 `pip install -r requirements.txt`
 
-## <span style="color: #007bff;">Usage</span>
+## Usage
 
 Run `python app.py` to start application
 
