@@ -7,8 +7,8 @@ Made with :green_heart: by Derek Greene & Nathan Schuler
 ## Description
 
 Three tier architecutre application built with:
-
-$${\color{lightgreen}Flask/Python}
+$${\color{lightgreen}Light \space Green}$$
+- Flask/Python
 - MySQL
 - HTML/CSS
 - Jinja2
