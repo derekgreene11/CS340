@@ -4,7 +4,6 @@ Final project for Introduction to Databases - CS340 @ OSU
 
 Made with :green_heart: by Derek Greene & Nathan Schuler
 
-See this app in action at https://www.derekrgreene.com/flask/
 ## Description
 
 Three tier architecutre application built with:
@@ -15,6 +14,8 @@ Three tier architecutre application built with:
 - Jinja2
 
 Application showcases web development & database knowledge. Users are able to view, add, edit, and remove records from various tables in the Engineering Services Database. 
+
+See this app in action at https://www.derekrgreene.com/flask/
 
 ## Getting started
 
