@@ -3,12 +3,13 @@
 # Course: CS340 - Introduction to Database
 
 from flask import Flask, render_template, redirect, url_for, request
-from flask_mysqldb import MySQL
+import pymysql
 import database.db_connector as db
 import os
 
 app = Flask(__name__)
-mysql = MySQL(app)
+pymysql.install_as_MySQLdb()
+
 
 # Routes
 @app.route('/')
@@ -405,4 +406,4 @@ def delete_user(user_id):
 
 # Listener
 if __name__ == "__main__":
-    app.run(host='', port=os.environ.get("340PORT"), debug=True)
+    app.run(host='', port=os.environ.get("340PORT"), debug=False)

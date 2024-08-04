@@ -3,7 +3,7 @@
 # Adapted from:
 # Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/database/db_connector.py
 
-import MySQLdb
+import pymysql
 import os
 from dotenv import load_dotenv, find_dotenv
 
@@ -16,11 +16,12 @@ passwd = os.environ.get("340DBPW")
 db = os.environ.get("340DB")
 
 def connect_to_database(host=host, user=user, passwd=passwd, db=db):
-    db_connection = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
+    db_connection = pymysql.connect(host=host, user=user, password=passwd, database=db, 
+cursorclass=pymysql.cursors.DictCursor)
     return db_connection
 
 def execute_query(db_connection=None, query=None, query_params=()):
-    cursor = db_connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor = db_connection.cursor()
     cursor.execute(query, query_params)
-    db_connection.commit();
+    db_connection.commit()
     return cursor
