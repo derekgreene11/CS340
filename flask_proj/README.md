@@ -59,7 +59,7 @@ Run `python app.py` to start application
  
 Navigate to localhost at the port listed in the .env e.g. http://localhost:5000/
 
-### Citations
+## Citations
 
 db_connector.py was adapted from: OSU-CS340-Ecampus Flask-Starter-App
 
