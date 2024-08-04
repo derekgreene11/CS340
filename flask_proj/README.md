@@ -58,3 +58,9 @@ Install requirements.txt
 Run `python app.py` to start application
  
 Navigate to localhost at the port listed in the .env e.g. http://localhost:5000/
+
+### Citations
+
+db_connector.py was adapted from: OSU-CS340-Ecampus Flask-Starter-App
+
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/database/db_connector.py
