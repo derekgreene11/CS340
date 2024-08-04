@@ -6,14 +6,14 @@ Made with :green_heart: by Derek Greene & Nathan Schuler
 
 ## Description
 
+Application showcases web development & database knowledge. Users are able to view, add, edit, and remove records from various tables in the Engineering Services Database. 
+
 Three tier architecutre application built with:
 
 - Flask/Python
 - MySQL
 - HTML/CSS
 - Jinja2
-
-Application showcases web development & database knowledge. Users are able to view, add, edit, and remove records from various tables in the Engineering Services Database. 
 
 See this app in action at https://www.derekrgreene.com/flask/
 
@@ -56,5 +56,5 @@ Install requirements.txt
 ## Usage
 
 Run `python app.py` to start application
-
+ 
 Navigate to localhost at the port listed in the .env e.g. http://localhost:5000/
