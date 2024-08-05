@@ -63,4 +63,6 @@ Navigate to localhost at the port listed in the .env e.g. http://localhost:5000/
 
 db_connector.py was adapted from: OSU-CS340-Ecampus Flask-Starter-App
 
+Adapted to utilize pymysql instead of MySQLdb and removed unnecessary functions/sample query
+
 Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/database/db_connector.py
