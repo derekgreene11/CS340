@@ -1,6 +1,6 @@
 # Authors: Derek Greene & Nathan Schuler
 # Date: 7/2024
-# Course: CS340 - Introduction to Database
+# Course: CS340 - Introduction to Databases
 
 from flask import Flask, render_template, redirect, url_for, request
 import pymysql
@@ -17,15 +17,17 @@ def root():
     return render_template('index.html')
 
 
-# Route to display all designs and associated projects
+# Route to display all designs and associated projects and associated users
 @app.route('/designs')
 def designs():
     db_connection = db.connect_to_database()
     query = """
-        SELECT d.partNumber, d.tool, d.revision, p.projectId
+        SELECT d.partNumber, d.tool, d.revision, p.projectId, GROUP_CONCAT(du.userId SEPARATOR ', ') AS users
         FROM Designs d
         LEFT JOIN DesignProjects dp ON d.partNumber = dp.partNumber
-        LEFT JOIN Projects p ON dp.projectId = p.projectId;
+        LEFT JOIN Projects p ON dp.projectId = p.projectId
+        LEFT JOIN DesignUsers du ON d.partNumber = du.partNumber
+        GROUP BY d.partNumber, d.tool, d.revision, p.projectId;
     """
     cursor = db.execute_query(db_connection=db_connection, query=query)
     results = cursor.fetchall()
@@ -41,6 +43,7 @@ def add_design():
         tool = request.form['tool']
         revision = request.form.get('revision', None)
         project_id = request.form['projectId']
+        user_ids = request.form.getlist('userIds')
         query = "INSERT INTO Designs (partNumber, tool, revision) VALUES (%s, %s, %s);"
         try:
             db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, tool, revision))
@@ -48,6 +51,10 @@ def add_design():
             query = "INSERT INTO DesignProjects (partNumber, projectId) VALUES (%s, %s);"
             db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, project_id))
             db_connection.commit()
+            for user_id in user_ids:
+                query = "INSERT INTO DesignUsers (partNumber, userId) VALUES (%s, %s);"
+                db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, user_id))
+                db_connection.commit()
             return redirect(url_for('designs'))
         except Exception as e:
             print(f"Error: {e}")
@@ -55,7 +62,10 @@ def add_design():
     query = "SELECT projectId FROM Projects;"
     cursor = db.execute_query(db_connection=db_connection, query=query)
     projects = cursor.fetchall()
-    return render_template('add_design.html', projects=projects)
+    query = "SELECT userId FROM Users;"
+    cursor = db.execute_query(db_connection=db_connection, query=query)
+    users = cursor.fetchall()
+    return render_template('add_design.html', projects=projects, users=users)
 
 
 # Route to edit a design
@@ -66,10 +76,12 @@ def edit_design(part_number):
         tool = request.form['tool']
         revision = request.form.get('revision', None)
         project_id = request.form['projectId']
+        user_ids = request.form.getlist('userIds')
         query = "UPDATE Designs SET tool = %s, revision = %s WHERE partNumber = %s;"
         try:
             db.execute_query(db_connection=db_connection, query=query, query_params=(tool, revision, part_number))
             db_connection.commit()
+            # Update DesignProjects
             query = "DELETE FROM DesignProjects WHERE partNumber = %s;"
             db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
             db_connection.commit()
@@ -77,6 +89,21 @@ def edit_design(part_number):
                 query = "INSERT INTO DesignProjects (partNumber, projectId) VALUES (%s, %s);"
                 db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, project_id))
                 db_connection.commit()
+            # Update DesignUsers
+            query = "DELETE FROM DesignUsers WHERE partNumber = %s;"
+            db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
+            db_connection.commit()
+            if user_ids:
+                if "" in user_ids:
+                    # Ensure that no users are associated if "None" is selected
+                    query = "DELETE FROM DesignUsers WHERE partNumber = %s;"
+                    db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
+                    db_connection.commit()
+                else:
+                    for user_id in user_ids:
+                        query = "INSERT INTO DesignUsers (partNumber, userId) VALUES (%s, %s);"
+                        db.execute_query(db_connection=db_connection, query=query, query_params=(part_number, user_id))
+                    db_connection.commit()
             return redirect(url_for('designs'))
         except Exception as e:
             print(f"Error: {e}")
@@ -88,7 +115,14 @@ def edit_design(part_number):
         query = "SELECT projectId FROM Projects;"
         cursor = db.execute_query(db_connection=db_connection, query=query)
         projects = cursor.fetchall()
-        return render_template('edit_design.html', design=design, projects=projects)
+        query = "SELECT userId FROM Users;"
+        cursor = db.execute_query(db_connection=db_connection, query=query)
+        users = cursor.fetchall()
+        query = "SELECT userId FROM DesignUsers WHERE partNumber = %s;"
+        cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
+        design_users = cursor.fetchall()
+        design_user_ids = [user['userId'] for user in design_users]
+        return render_template('edit_design.html', design=design, projects=projects, users=users, design_user_ids=design_user_ids)
 
 
 # Route to delete a design    

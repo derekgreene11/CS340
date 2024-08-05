@@ -19,8 +19,10 @@
                 <th>Tool</th>
                 <th>Revision</th>
                 <th>Project ID</th>
+                <th>User ID</th>
                 <th class="actions">
                     <div class="actions-header">Actions</div>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +34,13 @@
                     <td>
                         {% if design['projectId'] %}
                             {{ design['projectId'] }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if design['users'] %}
+                            {{ design['users'] }}
                         {% else %}
                             N/A
                         {% endif %}

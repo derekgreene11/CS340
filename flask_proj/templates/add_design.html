@@ -2,6 +2,7 @@
      Date: 7/2024
      Course: CS340 - Introduction to Database
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +36,15 @@
                     <option value="">Select Project</option>
                     {% for project in projects %}
                         <option value="{{ project['projectId'] }}">{{ project['projectId'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="userIds">User IDs:</label>
+                <select id="userIds" name="userIds" multiple class="form-control">
+                    {% for user in users %}
+                        <option value="{{ user['userId'] }}">{{ user['userId'] }}</option>
                     {% endfor %}
                 </select>
             </div>

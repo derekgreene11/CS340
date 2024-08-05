@@ -37,6 +37,17 @@
                     {% endfor %}
                 </select>
             </div>
+            <div class="form-group">
+                <label for="userIds">Users:</label>
+                <select id="userIds" name="userIds" class="form-control" multiple>
+                    <option value="">None</option>
+                    {% for user in users %}
+                        <option value="{{ user['userId'] }}" {% if user['userId'] in design_user_ids %}selected{% endif %}>
+                            {{ user['userId'] }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Save Changes</button>
             <a href="{{ url_for('designs') }}" class="btn btn-cancel">Cancel</a>
         </form>
