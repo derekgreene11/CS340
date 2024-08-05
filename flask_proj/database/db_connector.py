@@ -1,6 +1,6 @@
 # Citation for db_connector.py:
 # Date: 6/23//2024
-# Adapted from:
+# Adapted to utilize pymysql instead of MySQLdb and removed unnecessary functions/sample query
 # Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/database/db_connector.py
 
 import pymysql
