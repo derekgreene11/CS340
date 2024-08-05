@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 {% extends "main.html" %}
@@ -12,7 +12,11 @@
 <p>This is the central hub for managing designs, requirements, projects, and users. Use the navigation bar above to explore different sections of the database.</p>
 <img src="{{ url_for('static', filename='images/database_logo.png') }}" alt="Engineering Services Database Logo" width="500" class="float-right">
 <div class="left-align-content">
+
+    <!-- Project tools and tech stack -->
     <h2>Project Tools and Technologies</h2>
+
+    <!-- Frontend -->
     <h3><strong>Frontend:</strong></h3>
     <div class="center-container">
     <ul class="centered-list">
@@ -21,6 +25,8 @@
         <li><strong>Bootstrap</strong></li>
     </ul>
     </div>
+
+    <!-- Backend -->
     <h3><strong>Backend:</strong></h3>
     <div class="center-container">
     <ul class="centered-list">
@@ -28,18 +34,24 @@
         <li><strong>Python</strong></li>
     </ul>
     </div>
+
+    <!-- Templating -->
     <h3><strong>Templating:</strong></h3>
     <div class="center-container">
     <ul class="centered-list">
         <li><strong>Jinja2</strong></li>
     </ul>
     </div>
+
+    <!-- DBMS -->
     <h3><strong>Database Management System (DBMS):</strong></h3>
     <div class="center-container">
     <ul class="centered-list">
         <li><strong>MySQL</strong></li>
     </ul>
     </div>
+
+    <!-- Programming languages-->
     <h3><strong>Languages:</strong></h3>
     <div class="center-container">
     <ul class="centered-list">
@@ -49,6 +61,8 @@
         <li><strong>SQL</strong></li>
     </ul>
     </div>
+
+    <!-- Developer credits with green heart icon-->
     <h3><strong>Made with &#128154; by Derek Greene & Nathan Schuler</strong></h3>
 </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 <!DOCTYPE html>
@@ -14,7 +14,11 @@
 <body class="page-edit-project">
     <div class="container">
         <h1>Edit Project</h1>
+
+        <!-- Form to edit project -->
         <form method="POST" class="form">
+
+            <!-- Dropdown for status -->
             <div class="form-group">
                 <label for="projectStatus">Project Status:</label>
                 <select id="projectStatus" name="projectStatus" required class="form-control">
@@ -25,6 +29,8 @@
                     <option value="Canceled" {% if project['projectStatus'] == 'Canceled' %}selected{% endif %}>Canceled</option>
                 </select>
             </div>
+
+            <!-- Multi-select dropdown for part numbers -->
             <div class="form-group">
                 <label for="partNumbers">Part Numbers:</label>
                 <select id="partNumbers" name="partNumbers" multiple required class="form-control">
@@ -36,6 +42,8 @@
                     {% endfor %}
                 </select>
             </div>
+
+            <!-- Multi-select dropdown for assigned users -->
             <div class="form-group">
                 <label for="users">Assign Users:</label>
                 <select id="users" name="users" multiple class="form-control">
@@ -48,6 +56,8 @@
                     {% endfor %}
                 </select>
             </div>
+
+            <!-- Add and cancel buttons -->
             <button type="submit" class="btn btn-primary">Save Changes</button>
             <a href="{{ url_for('projects') }}" class="btn btn-cancel">Cancel</a>
         </form>

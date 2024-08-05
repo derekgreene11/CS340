@@ -1,7 +1,9 @@
 /* Authors: Derek Greene & Nathan Schuler
    Date: 7/2024
-   Course: CS340 - Introduction to Database
+   Course: CS340 - Introduction to Databases
 */
+
+/* CSS Styles for frontend UI*/
 body {
     text-align: center; 
     font-family: Arial, sans-serif;
@@ -10,18 +12,22 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     background-color: #007bff;
     color: white;
     padding: 10px 0;
 }
+
 header .container {
     display: flex;
     justify-content: center;
 }
+
 header .nav {
     display: flex;
 }
+
 header .nav a {
     padding: 10px 20px;
     margin: 0 5px;
@@ -32,32 +38,41 @@ header .nav a {
     font-size: 14px;
     text-align: center;
 }
+
 header .nav a:hover {
     background-color: #0056b3;
 }
+
 header .nav a.active {
     background-color: #0056b3;
 }
+
 main.container {
     padding: 20px;
 }
+
 h1 {
     text-align: center;
     color: #007bff;
 }
+
 h2 {
     color: #007bff;
 }
+
 .left-align-content li {
     color:#007bff;
 }
+
 .left-align-content p {
     color: #4e5a67;
 }
+
 h3 {
     color: #4e5a67;
     font-size: 20px;
 }
+
 table {
     width: auto;
     display: inline-block; 
@@ -66,25 +81,31 @@ table {
     font-size: 16px;
     min-width: 600px;
 }
+
 th, td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
+
 th {
     background-color: #007bff;
     color: white;
 }
+
 tr:nth-child(even) {
     background-color: #ababab;
 }
+
 tr:hover {
     background-color: #00ffaa;
 }
+
 .button-container {
     text-align: center;
     margin-bottom: 20px;
 }
+
 .button {
     padding: 10px 50px;
     margin: 5px;
@@ -96,15 +117,19 @@ tr:hover {
     text-decoration: none;
     font-size: 14px;
 }
+
 .button:hover {
     background-color: #0056b3;
 }
+
 .button.delete {
     background-color: #dc3545;
 }
+
 .button.delete:hover {
     background-color: #c82333;
 }
+
 .page-add-user body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -112,10 +137,12 @@ tr:hover {
     margin: 0;
     padding: 20px;
 }
+
 .page-add-user h1 {
     text-align: center;
     color: #007bff;
 }
+
 .page-add-user form {
     max-width: 600px;
     margin: 0 auto;
@@ -124,11 +151,13 @@ tr:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
+
 .page-add-user label {
     display: block;
     margin-bottom: 10px;
     color: #555;
 }
+
 .page-add-user input[type="text"] {
     width: 100%;
     padding: 8px;
@@ -136,6 +165,7 @@ tr:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 .page-add-user button {
     padding: 10px 15px;
     background-color: #007bff;
@@ -144,18 +174,22 @@ tr:hover {
     border-radius: 4px;
     cursor: pointer;
 }
+
 .page-add-user button:hover {
     background-color: #0056b3;
 }
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     color: #333;
 }
+
  h1 {
     text-align: center;
     color: #007bff;
 }
+
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -164,11 +198,13 @@ form {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
+
 label {
     display: block;
     margin-bottom: 10px;
     color: #555;
 }
+
 input[type="text"] {
     width: 100%;
     padding: 8px;
@@ -176,6 +212,7 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 button {
     padding: 10px 15px;
     background-color: #007bff;
@@ -184,30 +221,37 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
+
 button:hover {
     background-color: #0056b3;
 }
+
 .button svg {
     width: 16px;
     height: 16px;
     fill: white;
 }
+
 th.actions {
     background-color: #007bff;
     color: white;
 }
+
 td.actions {
     background-color: #ffffff; 
 }
+
 th.actions {
     background-color: #007bff;
     color: white;
     text-align: center;
     position: relative;
 }
+
 td.actions {
     background-color: #ffffff;
 }
+
 .actions-header {
     position: absolute;
     left: 50%;
@@ -215,50 +259,61 @@ td.actions {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
 .center-container {
     text-align: center;
 }
+
 .centered-list {
     display: inline-block;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 .centered-list li {
     display: inline;
     margin: 0 10px;
 }
+
 ul, ol {
     list-style-type: none;
     padding: 0;            
     margin: 0;           
 }
+
 .centered-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 .centered-list li {
     display: inline;       
     margin: 0 10px;       
 }
+
 .user-projects h2{
     color: #4e5a67;
 }
+
 .page-add-project {
     background-color: #007bff;
     color: #fff;
     padding: 20px;
 }
+
 .page-add-project h1{
     color: #fff;
 }
+
 .page-add-project form {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .add-project label,
 .add-project input,
 .add-project select,
@@ -267,6 +322,7 @@ ul, ol {
     width: 100%;
     margin-bottom: 15px;
 }
+
 .add-project button {
     background-color: #007bff;
     color: #fff;
@@ -274,32 +330,39 @@ ul, ol {
     padding: 10px;
     cursor: pointer;
 }
+
 .page-add-project button:hover {
     background-color: #0056b3;
 }
+
 .page-title {
     font-size: 2em;
     margin-bottom: 20px;
     color: #333;
 }
+
 .form {
     display: flex;
     flex-direction: column;
 }
+
 .form-group {
     margin-bottom: 15px;
 }
+
 .form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
+
 .form-control {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 .btn {
     padding: 10px 20px;
     border: none;
@@ -309,60 +372,75 @@ ul, ol {
     color: #fff;
     background-color: #007bff;
 }
+
 .btn-primary {
     background-color: #007bff;
 }
+
 .btn-primary:hover {
     background-color: #0056b3;
 }
+
 .add-design-page {
     background-color: #007bff;
     color: #fff;
     padding: 20px;
 }
+
 .add-design-page h1 {
     color: #fff;
 }
+
 .add-requirement-page {
     background-color: #007bff;
     color: #fff;
     padding: 20px;
 }
+
 .add-requirement-page h1 {
     color: #fff;
 }
+
 .edit-requirement-page {
     background-color: #007bff;
     color: #fff;
     padding: 20px;
 }
+
 .edit-requirement-page h1 {
     color: #fff;
 }
+
 .add-user-page {
     background-color: #007bff;
     color: #fff;
     padding: 20px;
 }
+
 .add-user-page h1 {
     color: #fff;
 }
+
 .edit-user-page {
     background-color: #007bff;
     color: #fff;
     padding: 20px;
 }
+
 .edit-user-page h1 {
     color: #fff;
 }
+
 .page-edit-project {
     background-color: #007bff;
     color: #fff;
     padding: 20px;
 }
+
 .page-edit-project h1 {
     color: #fff;
 }
+
 .btn-cancel {
     background-color: red;
     color: white;
@@ -376,6 +454,7 @@ ul, ol {
     cursor: pointer;
     border-radius: 5px;
 }
+
 .btn-cancel:hover {
     background-color: darkred;
 }

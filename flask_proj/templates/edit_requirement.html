@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 <!DOCTYPE html>
@@ -14,7 +14,11 @@
 <body class="edit-requirement-page">
     <div class="container">
         <h1 class="page-title">Edit Requirement</h1>
+
+        <!-- Form to edit requirement -->
         <form method="POST" class="form">
+
+            <!-- Dropdown for level -->
             <div class="form-group">
                 <label for="level">Level:</label>
                 <select id="level" name="level" class="form-control" required>
@@ -23,10 +27,16 @@
                     <option value="High" {% if requirement['level'] == 'High' %}selected{% endif %}>High</option>
                 </select>
             </div>
+
+            <!-- Dropdown for associated project -->
             <div class="form-group">
                 <label for="projectId">Associated Project:</label>
                 <select id="projectId" name="projectId" class="form-control">
+
+                    <!-- Option for project -->
                     <option value="">None</option>
+
+                    <!-- Loop through projects to generate options -->
                     {% for project in projects %}
                         <option value="{{ project['projectId'] }}" {% if project['projectId'] == associated_project_id %}selected{% endif %}>
                             Project ID: {{ project['projectId'] }} - Status: {{ project['projectStatus'] }}
@@ -34,6 +44,8 @@
                     {% endfor %}
                 </select>
             </div>
+
+            <!-- Add and cancel buttons -->
             <button type="submit" class="btn btn-primary">Save Changes</button>
             <a href="{{ url_for('requirements') }}" class="btn btn-cancel">Cancel</a>
         </form>

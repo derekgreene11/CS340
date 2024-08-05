@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 {% extends "main.html" %}
@@ -9,6 +9,8 @@
 
 {% block content %}
     <h1>Requirements</h1>
+
+    <!-- Button to add requirement -->
     <div class="button-container">
         <a href="{{ url_for('add_requirement') }}" class="button">Add Requirement</a>
     </div>
@@ -23,11 +25,15 @@
             </tr>
         </thead>
         <tbody>
+
+            <!-- Iterate through requirements and display each requirement's details -->
             {% for requirement in requirements %}
                 <tr>
                     <td>{{ requirement['requirementId'] }}</td>
                     <td>{{ requirement['level'] }}</td>
                     <td>
+
+                        <!-- Check if requirement has associated projects -->
                         {% if requirement['projects'] %}
                             <div class="projects-container">
                                 {% for project in requirement['projects'] %}
@@ -38,9 +44,13 @@
                                 {% endfor %}
                             </div>
                         {% else %}
+
+                            <!-- Message when no users assigned -->
                             <strong>No associated projects</strong>
                         {% endif %}
                     </td>
+
+                    <!-- Buttons for edit and delete requirement -->
                     <td class="actions">
                         <a href="{{ url_for('edit_requirement', requirement_id=requirement['requirementId']) }}" class="button" title="Edit this requirement">
                             <i class="bi bi-pencil-square"></i>

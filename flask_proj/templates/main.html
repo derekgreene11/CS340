@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 <!DOCTYPE html>
@@ -10,9 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Engineering Services Database{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
 </head>
 <body>
+
+    <!-- Header with navigation links -->
     <header>
         <div class="container">
             <div class="nav">
@@ -24,11 +28,15 @@
             </div>
         </div>
     </header>
+
+    <!-- Main content area -->
     <main class="container">
         {% block content %}
         {% endblock %}
     </main>
 </body>
+
+<!-- Footer with copyright -->
 <footer>
     <p>&copy; 2024 Derek Greene & Nathan Schuler. All rights reserved.</p>
 </footer>

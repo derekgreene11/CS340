@@ -1,6 +1,7 @@
 -- Authors: Derek Greene & Nathan Schuler
 -- Date: 7/2024
--- Course: CS340 - Introduction to Database
+-- Course: CS340 - Introduction to Databases
+
 -- ******************** CRUD ***************************
 -- C(reate):
 -- Used in the add_design form to add a new design
@@ -24,12 +25,17 @@ INSERT INTO ProjectRequirements (projectId, requirementId) VALUES (%s, %s);
 -- Insert partNumber and projectID into DesignProjects
 INSERT INTO DesignProjects (partNumber, projectId) VALUES (%s, %s);
 
+-- Insert partNumber and userID into DesignUsers
+INSERT INTO DesignUsers (partNumber, userId) VALUES (%s, %s);
+
 -- R(ead):
--- Fetch all designs with associated projects
-SELECT d.partNumber, d.tool, d.revision, p.projectId
+-- Fetch all designs with associated projects and users
+SELECT d.partNumber, d.tool, d.revision, p.projectId, GROUP_CONCAT(du.userId SEPARATOR ', ') AS users
 FROM Designs d
 LEFT JOIN DesignProjects dp ON d.partNumber = dp.partNumber
-LEFT JOIN Projects p ON dp.projectId = p.projectId;
+LEFT JOIN Projects p ON dp.projectId = p.projectId
+LEFT JOIN DesignUsers du ON d.partNumber = du.partNumber
+GROUP BY d.partNumber, d.tool, d.revision, p.projectId;
 
 -- Fetch all requirements
 SELECT * FROM Requirements;
@@ -47,35 +53,18 @@ SELECT * FROM Designs
 SELECT userId, firstName, lastName FROM Users;
 
 -- Fetch all projects with their associated users
-SELECT 
-    p.projectId,
-    p.projectStatus,
-    u.userId,
-    u.firstName,
-    u.lastName
-FROM 
-    Projects p
-LEFT JOIN 
-    UserProjects up ON p.projectId = up.projectId
-LEFT JOIN 
-    Users u ON up.userId = u.userId
-ORDER BY 
-    p.projectId, u.userId;
+SELECT p.projectId, p.projectStatus, u.userId, u.firstName, u.lastName
+FROM Projects p
+LEFT JOIN UserProjects up ON p.projectId = up.projectId
+LEFT JOIN Users u ON up.userId = u.userId
+ORDER BY p.projectId, u.userId;
 
 -- Fetch all requirements with their associated projects
-SELECT 
-    r.requirementId,
-    r.level,
-    p.projectId,
-    p.projectStatus
-FROM 
-    Requirements r
-LEFT JOIN 
-    ProjectRequirements pr ON r.requirementId = pr.requirementId
-LEFT JOIN 
-    Projects p ON pr.projectId = p.projectId
-ORDER BY 
-    r.requirementId, p.projectId;
+SELECT r.requirementId, r.level, p.projectId, p.projectStatus
+FROM Requirements r
+LEFT JOIN ProjectRequirements pr ON r.requirementId = pr.requirementId
+LEFT JOIN Projects p ON pr.projectId = p.projectId
+ORDER BY r.requirementId, p.projectId;
 
 -- Fetch all designs by partNumber
 SELECT * FROM Designs WHERE partNumber = %s;
@@ -109,6 +98,9 @@ SELECT partNumber FROM DesignProjects WHERE projectId = %s;
 -- Fetch all user IDs associated with a project
 SELECT userId FROM UserProjects WHERE projectId = %s;
 
+-- Fetcj all user IDs associated with a design
+SELECT userId FROM DesignUsers WHERE partNumber = %s;
+
 -- Fetch all parts associated with a project
 SELECT DISTINCT partNumber FROM Designs WHERE partNumber IN (SELECT partNumber FROM DesignProjects WHERE projectId = %s);
 
@@ -122,6 +114,9 @@ SELECT projectId FROM ProjectRequirements WHERE requirementId = %s;
 
 -- Fetch all project IDs from Projects
 SELECT projectId FROM Projects;
+
+-- Fetch all user IDs from Users
+SELECT userId FROM Users;
 
 -- U(pdate):
 -- Update a design
@@ -142,6 +137,9 @@ DELETE FROM Designs WHERE partNumber = %s;
 
 -- Delete a design from DesignProjects
 DELETE FROM DesignProjects WHERE partNumber = %s;
+
+-- Delete a design from DesignUsers
+DELETE FROM DesignUsers WHERE partNumber = %s;
 
 -- Delete a requirement
 DELETE FROM Requirements WHERE requirementId = %s;

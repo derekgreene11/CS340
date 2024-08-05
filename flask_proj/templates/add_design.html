@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 <!DOCTYPE html>
@@ -14,22 +14,29 @@
 <body class="add-design-page">
     <div class="container">
         <h1 class="page-title">Add Design</h1>
+
+        <!-- Form to add a new design -->
         <form method="POST" action="{{ url_for('add_design') }}" class="form">
             <div class="form-group">
+
+                <!-- Input for part number -->
                 <label for="partNumber">Part Number:</label>
                 <input type="text" id="partNumber" name="partNumber" required class="form-control">
             </div>
 
+            <!-- Input for tool -->
             <div class="form-group">
                 <label for="tool">Tool:</label>
                 <input type="text" id="tool" name="tool" required class="form-control">
             </div>
 
+            <!-- Input for revision -->
             <div class="form-group">
                 <label for="revision">Revision:</label>
                 <input type="text" id="revision" name="revision" class="form-control">
             </div>
 
+            <!-- Select dropdown for project ID -->
             <div class="form-group">
                 <label for="projectId">Project ID:</label>
                 <select id="projectId" name="projectId" required class="form-control">
@@ -40,15 +47,19 @@
                 </select>
             </div>
 
+            <!--Multi-select dropdown for user ID-->
             <div class="form-group">
                 <label for="userIds">User ID:</label>
                 <select id="userIds" name="userIds" multiple class="form-control">
+
+                    <!-- Loop through users to generate options -->
                     {% for user in users %}
                         <option value="{{ user['userId'] }}">{{ user['userId'] }}</option>
                     {% endfor %}
                 </select>
             </div>
 
+            <!-- Add and cancel buttons -->
             <button type="submit" class="btn btn-primary">Add Design</button>
             <a href="{{ url_for('designs') }}" class="btn btn-cancel">Cancel</a>
         </form>

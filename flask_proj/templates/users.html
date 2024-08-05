@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 {% extends "main.html" %}
@@ -9,6 +9,8 @@
 
 {% block content %}
     <h1>Users</h1>
+
+    <!-- Button to add user -->
     <div class="button-container">
         <a href="{{ url_for('add_user') }}" class="button">Add User</a>
     </div>
@@ -24,12 +26,16 @@
             </tr>
         </thead>
         <tbody>
+
+            <!-- Iterate through users and display each user's details -->
             {% for user in users %}
                 <tr>
                     <td>{{ user['userId'] }}</td>
                     <td>{{ user['firstName'] }}</td>
                     <td>{{ user['lastName'] }}</td>
                     <td>{{ user['discipline'] }}</td>
+
+                    <!-- Buttons for edit and delete user -->
                     <td class="actions">
                         <a href="{{ url_for('edit_user', user_id=user['userId']) }}" class="button"  title="Edit this user">
                             <i class="bi bi-pencil-square"></i>

@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 {% extends "main.html" %}
@@ -9,6 +9,8 @@
 
 {% block content %}
     <h1>Projects</h1>
+
+    <!-- Button to add project -->
     <div class="button-container">
         <a href="{{ url_for('add_project') }}" class="button">Add Project</a>
     </div>
@@ -26,7 +28,11 @@
                 </tr>
             </thead>
             <tbody>
+
+                <!-- Iterate through projects and display each project's details -->
                 {% for project_id, project_data in grouped_projects.items() %}
+
+                    <!-- Check if project has users -->
                     {% if project_data.users %}
                         {% for user in project_data.users %}
                         <tr>
@@ -34,6 +40,8 @@
                             <td>{{ user.userId }}</td>
                             <td>{{ user.name }}</td>
                             <td>{{ project_data.projectStatus }}</td>
+
+                            <!-- Buttons for edit and delete project -->
                             <td class="actions">
                                 <a href="{{ url_for('edit_project', project_id=project_id) }}" class="button" title="Edit this project">
                                     <i class="bi bi-pencil-square"></i>
@@ -45,10 +53,14 @@
                         </tr>
                         {% endfor %}
                     {% else %}
+
+                    <!-- Message when no users assigned -->
                     <tr>
                         <td>{{ project_id }}</td>
                         <td colspan="2"><strong>No user assigned</strong></td>
                         <td>{{ project_data.projectStatus }}</td>
+
+                        <!-- Buttons for edit and delete project (no user assigned) -->
                         <td class="actions">
                             <a href="{{ url_for('edit_project', project_id=project_id) }}" class="button" title="Edit this project">
                                 <i class="bi bi-pencil-square"></i>

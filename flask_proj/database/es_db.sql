@@ -1,6 +1,6 @@
 -- Authors: Derek Greene & Nathan Schuler
 -- Date: 7/2024
--- Course: CS340 - Introduction to Database
+-- Course: CS340 - Introduction to Databases
 
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS Requirements;

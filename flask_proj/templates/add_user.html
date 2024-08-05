@@ -1,6 +1,6 @@
 <!-- Authors: Derek Greene & Nathan Schuler
      Date: 7/2024
-     Course: CS340 - Introduction to Database
+     Course: CS340 - Introduction to Databases
 -->
 
 <!DOCTYPE html>
@@ -14,15 +14,23 @@
 <body class="add-user-page">
     <div class="container">
         <h1 class="page-title">Add User</h1>
+
+        <!-- Form to add a new user -->
         <form method="POST" action="{{ url_for('add_user') }}" class="form">
+
+            <!-- Input for first name -->
             <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" required class="form-control">
             </div>
+
+            <!-- Input for last name -->
             <div class="form-group">
                 <label for="lastName">Last Name:</label>
                 <input type="text" id="lastName" name="lastName" required class="form-control">
             </div>
+
+            <!-- Dropdown for selecting discipline -->
             <div class="form-group">
                 <label for="discipline">Discipline:</label>
                 <select id="discipline" name="discipline" required class="form-control">
@@ -34,6 +42,8 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
+
+            <!-- Add and cancel buttons -->
             <button type="submit" class="btn btn-primary">Add User</button>
             <a href="{{ url_for('users') }}" class="btn btn-cancel">Cancel</a>
         </form>
