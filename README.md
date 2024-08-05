@@ -4,7 +4,7 @@ $${\color{red}DUE \space\space 8/5}$$
 
 ## Step 1
 
-:white_check_mark Post the the ZIP file ProjectGroup12_Step4_DRAFT.zip and the URL of website (See [Flask App](https://www.derekrgreene.com/flask/))in Ed Discussion post for Project Step 4 Draft Version. 
+:white_check_mark: Post the the ZIP file ProjectGroup12_Step4_DRAFT.zip and the URL of website (See [Flask App](https://www.derekrgreene.com/flask/))in Ed Discussion post for Project Step 4 Draft Version. 
 
 Zip file to include:
 
@@ -20,7 +20,7 @@ Include the following information in post:
 - Where/why you are blocked.
 
 ## Step 2
-:white_check_mark Post the the ZIP file ProjectGroup12_Step4_DRAFT.zip and the URL of website (See [Flask App](https://www.derekrgreene.com/flask/)) in Canvas. 
+:white_check_mark: Post the the ZIP file ProjectGroup12_Step4_DRAFT.zip and the URL of website (See [Flask App](https://www.derekrgreene.com/flask/)) in Canvas. 
 
 - PDF outline
 - SQL DDL (See [es_db.sql](https://github.com/derekgreene11/CS340/blob/main/flask_proj/database/es_db.sql))
