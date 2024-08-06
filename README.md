@@ -14,6 +14,10 @@ The executive summary should be at the beginning of the PDF that you turn in ins
 
 -   The updated versions of the Project and Database outline. Reading these should give a layman the complete idea of your Project and its universe, and thus be able to navigate the website.
 
+- [ ] UI Screen Shots with Informative Titles
+
+-   Screen captures of each of the UI pages on your website. Add a title immediately above each Screen capture which explains the CRUD step. E.g. "READ/BROWSE/DISPLAY Customers page" or "CREATE/INSERT/ADD NEW Invoice page." The captures should be clear and easy to read. Clearly highlight where you have implemented a) Delete from a M:N, b) NULLable relationship and c) Update of a M:N. If you do not highlight these and we overlook them when grading you will lose points, even if you have implemented them. 
+
 :white_check_mark: ER Diagram
 
 -   The updated version of your ERD using the notations that we use in the class should represent a logical model of your design and omit some physical level of detail compared to the Schema. The diagram should avoid crossed lines and be clear and easy to read.
@@ -27,16 +31,11 @@ The executive summary should be at the beginning of the PDF that you turn in ins
 
 -   3-5 rows of example data from each table in your schema should be pasted into your report. Clearly indicate from which table the data is being displayed. Data should be polite values that reasonably represent how the table works, e.g. foreign keys demonstrate 1:M relationships and intersection tables show M:N relationships in action.  
 
-- [ ] UI Screen Shots with Informative Titles
-
--   Screen captures of each of the UI pages on your website. Add a title immediately above each Screen capture which explains the CRUD step. E.g. "READ/BROWSE/DISPLAY Customers page" or "CREATE/INSERT/ADD NEW Invoice page." The captures should be clear and easy to read. Clearly highlight where you have implemented a) Delete from a M:N, b) NULLable relationship and c) Update of a M:N. If you do not highlight these and we overlook them when grading you will lose points, even if you have implemented them. 
-
 :white_check_mark: Data Definition Queries
 
 -   The updated version of the SQL file that you provide should be cleanly import-able on the database Server that is used to host your CS340 database. Add comments at the top to describe the DDL file and make clear this file corresponds to the CS340 Portfolio Project deliverables. If the .SQL file cannot be imported or does not create tables as your Schema describes, using the database you have indicated (e.g. Maria DB), you will lose points. Well-structured, commented and hand-authored SQL files are preferrable. MySQL exports, are acceptable with team authored comments added. 
 
 :white_check_mark: Data Manipulation Queries
-
 
 -   The updated version of the SQL file which provides all your DML queries in the format described in Step 4. These queries should be consistent with those in your server-side code. Include brief comments mentioning what functionality/entity/relationship the query is related to.
 
