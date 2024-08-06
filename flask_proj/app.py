@@ -126,8 +126,8 @@ def edit_design(part_number):
 
             return "There was an error editing the design.", 500
     else:
-        # Get design details for the form
 
+        # Get design details for the form
         query = "SELECT * FROM Designs WHERE partNumber = %s;"
         cursor = db.execute_query(db_connection=db_connection, query=query, query_params=(part_number,))
         design = cursor.fetchone()
@@ -201,7 +201,7 @@ def add_requirement():
             cursor = db.execute_query(db_connection=db_connection, query=query)
             result = cursor.fetchone()
             requirement_id = result['requirementId']
-            0
+            
             # Associate the requirement with a project
             if project_id:
                 query = "INSERT INTO ProjectRequirements (projectId, requirementId) VALUES (%s, %s);"
