@@ -1,6 +1,7 @@
 -- Authors: Derek Greene & Nathan Schuler
 -- Date: 7/2024
 -- Course: CS340 - Introduction to Databases
+-- Description: This file contains the SQL code to create the database schema and insert sample data for the Engineering Services Database.
 
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS Requirements;

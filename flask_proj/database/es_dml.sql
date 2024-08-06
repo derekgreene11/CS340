@@ -1,6 +1,7 @@
 -- Authors: Derek Greene & Nathan Schuler
 -- Date: 7/2024
 -- Course: CS340 - Introduction to Databases
+-- Description: This file the SQL queries used in the Engineering Services Database Flask App.
 
 -- ******************** CRUD ***************************
 -- C(reate):
