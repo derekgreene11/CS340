@@ -218,7 +218,7 @@ def add_requirement():
     cursor = db.execute_query(db_connection=db_connection, query=query)
     projects = cursor.fetchall()
     levels = ["Low", "Medium", "High"]
-    000
+
     return render_template('add_requirement.html', projects=projects, levels=levels)
 
 # Route to edit a requirement
