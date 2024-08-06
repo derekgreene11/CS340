@@ -1,6 +1,6 @@
 # TO-DO 
 $${\color{red}DUE \space\space 8/12}$$
-# Project Step 4 Draft Version: Implement CRUD for One Entity (Group on Ed Discussions)
+# Project Step 5 (Portfolio Assignment
 
 ## Executive Summary:
 
