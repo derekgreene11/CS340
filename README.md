@@ -1,6 +1,6 @@
 # TO-DO 
 $${\color{red}DUE \space\space 8/12}$$
-# Project Step 5 (Portfolio Assignment
+# Project Step 5 (Portfolio Assignment)
 
 ## Executive Summary:
 
