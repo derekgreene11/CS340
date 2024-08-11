@@ -4,17 +4,17 @@ $${\color{red}DUE \space\space 8/12}$$
 
 ## Executive Summary:
 
-- [ ] 1 page (max) summary of feedback and changes made to this Project from initial version until now.
+- white_check_mark: 1 page (max) summary of feedback and changes made to this Project from initial version until now.
 Note that this summary is different from previous steps, which asked for copy/paste of feedback and your response. We do not want to see the feedback and/or your responses from previous steps here. Just a summary.  
 
 -   Executive summary has facts about the database design process and implementation steps. It is a reflection on major changes to this project from your initial proposal to now, and what feedback influenced those changes.  Think of the executive summary as the only thing your manager will read.
 The executive summary should be at the beginning of the PDF that you turn in inside the .ZIP file.
 
-- [ ] Project and Database Outlines
+- white_check_mark: Project and Database Outlines
 
 -   The updated versions of the Project and Database outline. Reading these should give a layman the complete idea of your Project and its universe, and thus be able to navigate the website.
 
-- [ ] UI Screen Shots with Informative Titles
+- white_check_mark: UI Screen Shots with Informative Titles
 
 -   Screen captures of each of the UI pages on your website. Add a title immediately above each Screen capture which explains the CRUD step. E.g. "READ/BROWSE/DISPLAY Customers page" or "CREATE/INSERT/ADD NEW Invoice page." The captures should be clear and easy to read. Clearly highlight where you have implemented a) Delete from a M:N, b) NULLable relationship and c) Update of a M:N. If you do not highlight these and we overlook them when grading you will lose points, even if you have implemented them. 
 
