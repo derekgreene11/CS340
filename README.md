@@ -15,7 +15,7 @@ Three tier architecutre application built with:
 - HTML/CSS
 - Jinja2
 
-See this app in action at https://www.derekrgreene.com/flask/
+See this app in action at [https://engdb.derekrgreene.com/](https://engdb.derekrgreene.com/)
 
 ## Citations
 
